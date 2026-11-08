@@ -1,0 +1,138 @@
+services:
+  observer:
+    build: .
+    container_name: observer
+    command: ./bin/observer
+    networks:
+      - cluster_sync_net
+
+  # ================= CLUSTER SYNC (5 GERENCIADORES EM ANEL) =================
+  node0:
+    build: .
+    container_name: node0
+    command: ./bin/node
+    environment:
+      - NODE_ID=0
+      - NEXT_HOST=node1
+      - OBSERVER_HOST=observer
+      - SYNC_ENABLED=${SYNC_ENABLED:-1}
+    depends_on: [observer]
+    networks: [cluster_sync_net]
+
+  node1:
+    build: .
+    container_name: node1
+    command: ./bin/node
+    environment:
+      - NODE_ID=1
+      - NEXT_HOST=node2
+      - OBSERVER_HOST=observer
+      - SYNC_ENABLED=${SYNC_ENABLED:-1}
+    depends_on: [observer]
+    networks: [cluster_sync_net]
+
+  node2:
+    build: .
+    container_name: node2
+    command: ./bin/node
+    environment:
+      - NODE_ID=2
+      - NEXT_HOST=node3
+      - OBSERVER_HOST=observer
+      - SYNC_ENABLED=${SYNC_ENABLED:-1}
+    depends_on: [observer]
+    networks: [cluster_sync_net]
+
+  node3:
+    build: .
+    container_name: node3
+    command: ./bin/node
+    environment:
+      - NODE_ID=3
+      - NEXT_HOST=node4
+      - OBSERVER_HOST=observer
+      - SYNC_ENABLED=${SYNC_ENABLED:-1}
+    depends_on: [observer]
+    networks: [cluster_sync_net]
+
+  node4:
+    build: .
+    container_name: node4
+    command: ./bin/node
+    environment:
+      - NODE_ID=4
+      - NEXT_HOST=node0
+      - OBSERVER_HOST=observer
+      - SYNC_ENABLED=${SYNC_ENABLED:-1}
+    depends_on: [observer]
+    networks: [cluster_sync_net]
+
+  # ================= 5 CLIENTES ISOLADOS =================
+  client0:
+    build: .
+    container_name: client0
+    command: ./bin/client
+    environment:
+      - CLIENT_ID=0
+      - TARGET_NODE_HOST=node0
+      - NUM_REQUESTS=${C0_REQS:-12}
+      - MIN_SLEEP_MS=${C0_MIN_SLEEP:-1000}
+      - MAX_SLEEP_MS=${C0_MAX_SLEEP:-5000}
+    depends_on: [node0, node1, node2, node3, node4]
+    networks: [cluster_sync_net]
+
+  client1:
+    build: .
+    container_name: client1
+    command: ./bin/client
+    environment:
+      - CLIENT_ID=1
+      - TARGET_NODE_HOST=node1
+      - NUM_REQUESTS=${OTHER_REQS:-12}
+      - MIN_SLEEP_MS=${MIN_SLEEP_MS:-1000}
+      - MAX_SLEEP_MS=${MAX_SLEEP_MS:-5000}
+    depends_on: [node0, node1, node2, node3, node4]
+    networks: [cluster_sync_net]
+
+  client2:
+    build: .
+    container_name: client2
+    command: ./bin/client
+    environment:
+      - CLIENT_ID=2
+      - TARGET_NODE_HOST=node2
+      - NUM_REQUESTS=${OTHER_REQS:-12}
+      - MIN_SLEEP_MS=${MIN_SLEEP_MS:-1000}
+      - MAX_SLEEP_MS=${MAX_SLEEP_MS:-5000}
+    depends_on: [node0, node1, node2, node3, node4]
+    networks: [cluster_sync_net]
+
+  client3:
+    build: .
+    container_name: client3
+    command: ./bin/client
+    environment:
+      - CLIENT_ID=3
+      - TARGET_NODE_HOST=node3
+      - NUM_REQUESTS=${OTHER_REQS:-12}
+      - MIN_SLEEP_MS=${MIN_SLEEP_MS:-1000}
+      - MAX_SLEEP_MS=${MAX_SLEEP_MS:-5000}
+    depends_on: [node0, node1, node2, node3, node4]
+    networks: [cluster_sync_net]
+
+  client4:
+    build: .
+    container_name: client4
+    command: ./bin/client
+    environment:
+      - CLIENT_ID=4
+      - TARGET_NODE_HOST=node4
+      - NUM_REQUESTS=${OTHER_REQS:-12}
+      - MIN_SLEEP_MS=${MIN_SLEEP_MS:-1000}
+      - MAX_SLEEP_MS=${MAX_SLEEP_MS:-5000}
+    depends_on: [node0, node1, node2, node3, node4]
+    networks: [cluster_sync_net]
+
+networks:
+  cluster_sync_net:
+    driver: bridge

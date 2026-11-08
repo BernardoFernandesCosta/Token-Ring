@@ -1,0 +1,890 @@
+Attaching to client0, client1, client2, client3, client4, node0, node1, node2, node3, node4, observer
+observer  | [1;36m================================================================================
+observer  |  [01:10:46.436] OBSERVADOR INICIADO - MONITORANDO RECURSO 'R' EM TEMPO REAL
+observer  | ================================================================================
+node0     | [1;35m🚀 [01:10:48.669] [NO 0] Injetando o TOKEN UNICO inicial no anel (P0 -> P1 -> P2 -> P3 -> P4 -> P0)
+client2   | [01:10:49.828] [CLIENTE 2] Conectado a node2 | Total de Pedidos=10 | Pausa=[1000..5000 ms] | Seed=1794109896
+client2   | [01:10:49.828] [CLIENTE 2] Enviando REQUEST C2-S1 (1/10)
+node2     | [1;34m📩 [01:10:49.828] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#1) -> Aguardando Token...[0m
+client0   | [01:10:49.835] [CLIENTE 0] Conectado a node0 | Total de Pedidos=30 | Pausa=[0..0 ms] | Seed=1794100246
+node0     | [0m[1;34m📩 [01:10:49.835] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#1) -> Aguardando Token...[0m
+client0   | [01:10:49.835] [CLIENTE 0] Enviando REQUEST C0-S1 (1/30)
+client3   | [01:10:49.846] [CLIENTE 3] Conectado a node3 | Total de Pedidos=10 | Pausa=[1000..5000 ms] | Seed=1794085083
+client3   | [01:10:49.846] [CLIENTE 3] Enviando REQUEST C3-S1 (1/10)
+node3     | [1;34m📩 [01:10:49.846] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#1) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:10:49.847] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=102) para R | Esperou 18.78 ms na fila[0m
+node2     | ⏳ [01:10:49.847] [NO 2] [3. ENTER]   Escrevendo no recurso R por 392 ms (Req C2-S1)...
+observer  | [0m
+observer  | [1;32m🔒 [01:10:49.848] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#1) | Volta do Token: 102 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+client4   | [01:10:49.848] [CLIENTE 4] Conectado a node4 | Total de Pedidos=10 | Pausa=[1000..5000 ms] | Seed=1794095018
+client4   | [01:10:49.848] [CLIENTE 4] Enviando REQUEST C4-S1 (1/10)
+node4     | [1;34m📩 [01:10:49.848] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#1) -> Aguardando Token...[0m
+client1   | [01:10:49.861] [CLIENTE 1] Conectado a node1 | Total de Pedidos=10 | Pausa=[1000..5000 ms] | Seed=1794102009
+client1   | [01:10:49.862] [CLIENTE 1] Enviando REQUEST C1-S1 (1/10)
+node1     | [1;34m📩 [01:10:49.862] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#1) -> Aguardando Token...[0m
+observer  | [1;33m🔓 [01:10:50.247] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#1) | Passando Token -> No 3 | Ativos em R: 0[0m
+node2     | 🏁 [01:10:50.247] [NO 2] [4. EXIT]    Terminou escrita de 392 ms em R (Req C2-S1)
+node2     | [1;36m➡️  [01:10:50.247] [NO 2] [5. RELEASE] Liberou R (Req C2-S1) e repassou o Token adiante[0m
+node2     | ✅ [01:10:50.248] [NO 2] [6. COMMITTED] Confirmado acesso #1 para o Cliente 2
+node3     | [1;35m🔑 [01:10:50.248] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=103) para R | Esperou 402.01 ms na fila[0m
+node3     | ⏳ [01:10:50.248] [NO 3] [3. ENTER]   Escrevendo no recurso R por 561 ms (Req C3-S1)...
+client2   | [01:10:50.248] [CLIENTE 2] Recebeu COMMITTED para C2-S1
+observer  | 
+observer  | [1;32m🔒 [01:10:50.249] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#1) | Volta do Token: 103 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:10:50.816] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#1) | Passando Token -> No 4 | Ativos em R: 0[0m
+node3     | 🏁 [01:10:50.816] [NO 3] [4. EXIT]    Terminou escrita de 561 ms em R (Req C3-S1)
+node3     | [1;36m➡️  [01:10:50.816] [NO 3] [5. RELEASE] Liberou R (Req C3-S1) e repassou o Token adiante[0m
+node4     | [1;35m🔑 [01:10:50.818] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=104) para R | Esperou 969.31 ms na fila[0m
+node4     | ⏳ [01:10:50.818] [NO 4] [3. ENTER]   Escrevendo no recurso R por 965 ms (Req C4-S1)...
+node3     | ✅ [01:10:50.817] [NO 3] [6. COMMITTED] Confirmado acesso #1 para o Cliente 3
+client3   | [01:10:50.818] [CLIENTE 3] Recebeu COMMITTED para C3-S1
+observer  | 
+observer  | [1;32m🔒 [01:10:50.819] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#1) | Volta do Token: 104 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+node4     | 🏁 [01:10:51.789] [NO 4] [4. EXIT]    Terminou escrita de 965 ms em R (Req C4-S1)
+node4     | [1;36m➡️  [01:10:51.789] [NO 4] [5. RELEASE] Liberou R (Req C4-S1) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:10:51.789] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#1) | Passando Token -> No 0 | Ativos em R: 0[0m
+node4     | ✅ [01:10:51.790] [NO 4] [6. COMMITTED] Confirmado acesso #1 para o Cliente 4
+client4   | [01:10:51.790] [CLIENTE 4] Recebeu COMMITTED para C4-S1
+node0     | [1;35m🔑 [01:10:51.791] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=105) para R | Esperou 1955.79 ms na fila[0m
+node0     | ⏳ [01:10:51.791] [NO 0] [3. ENTER]   Escrevendo no recurso R por 909 ms (Req C0-S1)...
+observer  | 
+observer  | [1;32m🔒 [01:10:51.792] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#1) | Volta do Token: 105 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+client3   | [01:10:52.105] [CLIENTE 3] Enviando REQUEST C3-S2 (2/10)
+node3     | [1;34m📩 [01:10:52.105] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#2) -> Aguardando Token...[0m
+node0     | 🏁 [01:10:52.707] [NO 0] [4. EXIT]    Terminou escrita de 909 ms em R (Req C0-S1)
+node0     | [1;36m➡️  [01:10:52.707] [NO 0] [5. RELEASE] Liberou R (Req C0-S1) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:10:52.707] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#1) | Passando Token -> No 1 | Ativos em R: 0[0m
+node1     | [1;35m🔑 [01:10:52.709] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=106) para R | Esperou 2847.10 ms na fila[0m
+node1     | ⏳ [01:10:52.709] [NO 1] [3. ENTER]   Escrevendo no recurso R por 545 ms (Req C1-S1)...
+node0     | ✅ [01:10:52.709] [NO 0] [6. COMMITTED] Confirmado acesso #1 para o Cliente 0
+node0     | [1;34m📩 [01:10:52.709] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#2) -> Aguardando Token...[0m
+client0   | [01:10:52.709] [CLIENTE 0] Recebeu COMMITTED para C0-S1
+client0   | [01:10:52.709] [CLIENTE 0] Enviando REQUEST C0-S2 (2/30)
+observer  | 
+observer  | [1;32m🔒 [01:10:52.710] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#1) | Volta do Token: 106 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+client4   | [01:10:53.150] [CLIENTE 4] Enviando REQUEST C4-S2 (2/10)
+node4     | [1;34m📩 [01:10:53.150] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#2) -> Aguardando Token...[0m
+node1     | 🏁 [01:10:53.262] [NO 1] [4. EXIT]    Terminou escrita de 545 ms em R (Req C1-S1)
+observer  | [1;33m🔓 [01:10:53.262] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#1) | Passando Token -> No 2 | Ativos em R: 0[0m
+node1     | [1;36m➡️  [01:10:53.262] [NO 1] [5. RELEASE] Liberou R (Req C1-S1) e repassou o Token adiante[0m
+node1     | ✅ [01:10:53.264] [NO 1] [6. COMMITTED] Confirmado acesso #1 para o Cliente 1
+client1   | [01:10:53.264] [CLIENTE 1] Recebeu COMMITTED para C1-S1
+node3     | [1;35m🔑 [01:10:53.276] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=108) para R | Esperou 1170.61 ms na fila[0m
+node3     | ⏳ [01:10:53.276] [NO 3] [3. ENTER]   Escrevendo no recurso R por 564 ms (Req C3-S2)...
+observer  | 
+observer  | [1;32m🔒 [01:10:53.276] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#2) | Volta do Token: 108 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+node2     | [1;34m📩 [01:10:53.773] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#2) -> Aguardando Token...[0m
+client2   | [01:10:53.773] [CLIENTE 2] Enviando REQUEST C2-S2 (2/10)
+node3     | 🏁 [01:10:53.844] [NO 3] [4. EXIT]    Terminou escrita de 564 ms em R (Req C3-S2)
+node3     | [1;36m➡️  [01:10:53.844] [NO 3] [5. RELEASE] Liberou R (Req C3-S2) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:10:53.844] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#2) | Passando Token -> No 4 | Ativos em R: 0[0m
+client3   | [01:10:53.846] [CLIENTE 3] Recebeu COMMITTED para C3-S2
+node4     | [1;35m🔑 [01:10:53.846] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=109) para R | Esperou 695.70 ms na fila[0m
+node4     | ⏳ [01:10:53.846] [NO 4] [3. ENTER]   Escrevendo no recurso R por 293 ms (Req C4-S2)...
+node3     | ✅ [01:10:53.845] [NO 3] [6. COMMITTED] Confirmado acesso #2 para o Cliente 3
+observer  | 
+observer  | [1;32m🔒 [01:10:53.846] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#2) | Volta do Token: 109 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+observer  | [1;33m🔓 [01:10:54.146] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#2) | Passando Token -> No 0 | Ativos em R: 0[0m
+node4     | 🏁 [01:10:54.146] [NO 4] [4. EXIT]    Terminou escrita de 293 ms em R (Req C4-S2)
+node4     | [1;36m➡️  [01:10:54.146] [NO 4] [5. RELEASE] Liberou R (Req C4-S2) e repassou o Token adiante[0m
+client4   | [01:10:54.147] [CLIENTE 4] Recebeu COMMITTED para C4-S2
+node4     | ✅ [01:10:54.147] [NO 4] [6. COMMITTED] Confirmado acesso #2 para o Cliente 4
+node0     | [1;35m🔑 [01:10:54.147] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=110) para R | Esperou 1438.24 ms na fila[0m
+node0     | ⏳ [01:10:54.148] [NO 0] [3. ENTER]   Escrevendo no recurso R por 211 ms (Req C0-S2)...
+observer  | 
+observer  | [1;32m🔒 [01:10:54.148] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#2) | Volta do Token: 110 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:10:54.363] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#2) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:10:54.363] [NO 0] [4. EXIT]    Terminou escrita de 211 ms em R (Req C0-S2)
+node0     | [1;36m➡️  [01:10:54.364] [NO 0] [5. RELEASE] Liberou R (Req C0-S2) e repassou o Token adiante[0m
+client0   | [01:10:54.366] [CLIENTE 0] Recebeu COMMITTED para C0-S2
+client0   | [01:10:54.366] [CLIENTE 0] Enviando REQUEST C0-S3 (3/30)
+node0     | ✅ [01:10:54.365] [NO 0] [6. COMMITTED] Confirmado acesso #2 para o Cliente 0
+node0     | [1;34m📩 [01:10:54.366] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#3) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:10:54.377] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=112) para R | Esperou 604.06 ms na fila[0m
+node2     | ⏳ [01:10:54.378] [NO 2] [3. ENTER]   Escrevendo no recurso R por 525 ms (Req C2-S2)...
+observer  | 
+observer  | [1;32m🔒 [01:10:54.378] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#2) | Volta do Token: 112 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+node2     | 🏁 [01:10:54.907] [NO 2] [4. EXIT]    Terminou escrita de 525 ms em R (Req C2-S2)
+node2     | [1;36m➡️  [01:10:54.908] [NO 2] [5. RELEASE] Liberou R (Req C2-S2) e repassou o Token adiante[0m
+node2     | ✅ [01:10:54.908] [NO 2] [6. COMMITTED] Confirmado acesso #2 para o Cliente 2
+observer  | [1;33m🔓 [01:10:54.907] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#2) | Passando Token -> No 3 | Ativos em R: 0[0m
+client2   | [01:10:54.909] [CLIENTE 2] Recebeu COMMITTED para C2-S2
+node0     | [1;35m🔑 [01:10:54.934] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=115) para R | Esperou 567.93 ms na fila[0m
+node0     | ⏳ [01:10:54.934] [NO 0] [3. ENTER]   Escrevendo no recurso R por 390 ms (Req C0-S3)...
+observer  | 
+observer  | [1;32m🔒 [01:10:54.935] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#3) | Volta do Token: 115 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:10:55.327] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#3) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:10:55.327] [NO 0] [4. EXIT]    Terminou escrita de 390 ms em R (Req C0-S3)
+node0     | [1;36m➡️  [01:10:55.327] [NO 0] [5. RELEASE] Liberou R (Req C0-S3) e repassou o Token adiante[0m
+node0     | ✅ [01:10:55.328] [NO 0] [6. COMMITTED] Confirmado acesso #3 para o Cliente 0
+client0   | [01:10:55.328] [CLIENTE 0] Recebeu COMMITTED para C0-S3
+client0   | [01:10:55.328] [CLIENTE 0] Enviando REQUEST C0-S4 (4/30)
+node0     | [1;34m📩 [01:10:55.328] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#4) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:10:55.374] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=120) para R | Esperou 46.12 ms na fila[0m
+node0     | ⏳ [01:10:55.375] [NO 0] [3. ENTER]   Escrevendo no recurso R por 943 ms (Req C0-S4)...
+observer  | 
+observer  | [1;32m🔒 [01:10:55.375] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#4) | Volta do Token: 120 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:10:56.325] [NO 0] [4. EXIT]    Terminou escrita de 943 ms em R (Req C0-S4)
+node0     | [1;36m➡️  [01:10:56.325] [NO 0] [5. RELEASE] Liberou R (Req C0-S4) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:10:56.325] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#4) | Passando Token -> No 1 | Ativos em R: 0[0m
+client0   | [01:10:56.325] [CLIENTE 0] Recebeu COMMITTED para C0-S4
+client0   | [01:10:56.325] [CLIENTE 0] Enviando REQUEST C0-S5 (5/30)
+node0     | ✅ [01:10:56.325] [NO 0] [6. COMMITTED] Confirmado acesso #4 para o Cliente 0
+node0     | [1;34m📩 [01:10:56.326] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#5) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:10:56.373] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=125) para R | Esperou 47.30 ms na fila[0m
+node0     | ⏳ [01:10:56.373] [NO 0] [3. ENTER]   Escrevendo no recurso R por 240 ms (Req C0-S5)...
+observer  | 
+observer  | [1;32m🔒 [01:10:56.374] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#5) | Volta do Token: 125 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:10:56.617] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#5) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:10:56.617] [NO 0] [4. EXIT]    Terminou escrita de 240 ms em R (Req C0-S5)
+node0     | [1;36m➡️  [01:10:56.617] [NO 0] [5. RELEASE] Liberou R (Req C0-S5) e repassou o Token adiante[0m
+client0   | [01:10:56.618] [CLIENTE 0] Recebeu COMMITTED para C0-S5
+client0   | [01:10:56.618] [CLIENTE 0] Enviando REQUEST C0-S6 (6/30)
+node0     | ✅ [01:10:56.618] [NO 0] [6. COMMITTED] Confirmado acesso #5 para o Cliente 0
+node0     | [1;34m📩 [01:10:56.618] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#6) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:10:56.664] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=130) para R | Esperou 46.60 ms na fila[0m
+node0     | ⏳ [01:10:56.664] [NO 0] [3. ENTER]   Escrevendo no recurso R por 897 ms (Req C0-S6)...
+observer  | 
+observer  | [1;32m🔒 [01:10:56.665] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#6) | Volta do Token: 130 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:10:57.565] [NO 0] [4. EXIT]    Terminou escrita de 897 ms em R (Req C0-S6)
+node0     | [1;36m➡️  [01:10:57.565] [NO 0] [5. RELEASE] Liberou R (Req C0-S6) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:10:57.565] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#6) | Passando Token -> No 1 | Ativos em R: 0[0m
+client0   | [01:10:57.565] [CLIENTE 0] Recebeu COMMITTED para C0-S6
+client0   | [01:10:57.566] [CLIENTE 0] Enviando REQUEST C0-S7 (7/30)
+node0     | ✅ [01:10:57.565] [NO 0] [6. COMMITTED] Confirmado acesso #6 para o Cliente 0
+node0     | [1;34m📩 [01:10:57.566] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#7) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:10:57.615] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=135) para R | Esperou 49.34 ms na fila[0m
+node0     | ⏳ [01:10:57.615] [NO 0] [3. ENTER]   Escrevendo no recurso R por 210 ms (Req C0-S7)...
+observer  | 
+observer  | [1;32m🔒 [01:10:57.616] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#7) | Volta do Token: 135 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:10:57.827] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#7) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:10:57.828] [NO 0] [4. EXIT]    Terminou escrita de 210 ms em R (Req C0-S7)
+node0     | [1;36m➡️  [01:10:57.828] [NO 0] [5. RELEASE] Liberou R (Req C0-S7) e repassou o Token adiante[0m
+client0   | [01:10:57.828] [CLIENTE 0] Recebeu COMMITTED para C0-S7
+client0   | [01:10:57.828] [CLIENTE 0] Enviando REQUEST C0-S8 (8/30)
+node0     | ✅ [01:10:57.828] [NO 0] [6. COMMITTED] Confirmado acesso #7 para o Cliente 0
+node0     | [1;34m📩 [01:10:57.828] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#8) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:10:57.873] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=140) para R | Esperou 44.55 ms na fila[0m
+node0     | ⏳ [01:10:57.873] [NO 0] [3. ENTER]   Escrevendo no recurso R por 242 ms (Req C0-S8)...
+observer  | 
+observer  | [1;32m🔒 [01:10:57.873] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#8) | Volta do Token: 140 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:10:58.120] [NO 0] [4. EXIT]    Terminou escrita de 242 ms em R (Req C0-S8)
+node0     | [1;36m➡️  [01:10:58.120] [NO 0] [5. RELEASE] Liberou R (Req C0-S8) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:10:58.120] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#8) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:10:58.121] [NO 0] [6. COMMITTED] Confirmado acesso #8 para o Cliente 0
+client0   | [01:10:58.121] [CLIENTE 0] Recebeu COMMITTED para C0-S8
+client0   | [01:10:58.121] [CLIENTE 0] Enviando REQUEST C0-S9 (9/30)
+node0     | [1;34m📩 [01:10:58.121] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#9) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:10:58.168] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=145) para R | Esperou 46.81 ms na fila[0m
+node0     | ⏳ [01:10:58.168] [NO 0] [3. ENTER]   Escrevendo no recurso R por 780 ms (Req C0-S9)...
+observer  | 
+observer  | [1;32m🔒 [01:10:58.168] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#9) | Volta do Token: 145 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+client4   | [01:10:58.230] [CLIENTE 4] Enviando REQUEST C4-S3 (3/10)
+node4     | [1;34m📩 [01:10:58.230] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#3) -> Aguardando Token...[0m
+client1   | [01:10:58.266] [CLIENTE 1] Enviando REQUEST C1-S2 (2/10)
+node1     | [1;34m📩 [01:10:58.266] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#2) -> Aguardando Token...[0m
+client2   | [01:10:58.384] [CLIENTE 2] Enviando REQUEST C2-S3 (3/10)
+node2     | [1;34m📩 [01:10:58.385] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#3) -> Aguardando Token...[0m
+client3   | [01:10:58.656] [CLIENTE 3] Enviando REQUEST C3-S3 (3/10)
+node3     | [1;34m📩 [01:10:58.656] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#3) -> Aguardando Token...[0m
+node0     | 🏁 [01:10:58.955] [NO 0] [4. EXIT]    Terminou escrita de 780 ms em R (Req C0-S9)
+node0     | [1;36m➡️  [01:10:58.955] [NO 0] [5. RELEASE] Liberou R (Req C0-S9) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:10:58.954] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#9) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:10:58.955] [NO 0] [6. COMMITTED] Confirmado acesso #9 para o Cliente 0
+client0   | [01:10:58.955] [CLIENTE 0] Recebeu COMMITTED para C0-S9
+client0   | [01:10:58.955] [CLIENTE 0] Enviando REQUEST C0-S10 (10/30)
+node1     | [1;35m🔑 [01:10:58.955] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=146) para R | Esperou 688.92 ms na fila[0m
+node0     | [1;34m📩 [01:10:58.955] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#10) -> Aguardando Token...[0m
+node1     | ⏳ [01:10:58.955] [NO 1] [3. ENTER]   Escrevendo no recurso R por 364 ms (Req C1-S2)...
+observer  | 
+observer  | [1;32m🔒 [01:10:58.956] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#2) | Volta do Token: 146 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:10:59.326] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#2) | Passando Token -> No 2 | Ativos em R: 0[0m
+node1     | 🏁 [01:10:59.327] [NO 1] [4. EXIT]    Terminou escrita de 364 ms em R (Req C1-S2)
+node1     | [1;36m➡️  [01:10:59.327] [NO 1] [5. RELEASE] Liberou R (Req C1-S2) e repassou o Token adiante[0m
+node2     | [1;35m🔑 [01:10:59.328] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=147) para R | Esperou 943.35 ms na fila[0m
+node2     | ⏳ [01:10:59.328] [NO 2] [3. ENTER]   Escrevendo no recurso R por 894 ms (Req C2-S3)...
+node1     | ✅ [01:10:59.328] [NO 1] [6. COMMITTED] Confirmado acesso #2 para o Cliente 1
+client1   | [01:10:59.328] [CLIENTE 1] Recebeu COMMITTED para C1-S2
+observer  | 
+observer  | [1;32m🔒 [01:10:59.329] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#3) | Volta do Token: 147 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+node2     | 🏁 [01:11:00.231] [NO 2] [4. EXIT]    Terminou escrita de 894 ms em R (Req C2-S3)
+node2     | [1;36m➡️  [01:11:00.231] [NO 2] [5. RELEASE] Liberou R (Req C2-S3) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:00.231] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#3) | Passando Token -> No 3 | Ativos em R: 0[0m
+node2     | ✅ [01:11:00.232] [NO 2] [6. COMMITTED] Confirmado acesso #3 para o Cliente 2
+client2   | [01:11:00.232] [CLIENTE 2] Recebeu COMMITTED para C2-S3
+node3     | [1;35m🔑 [01:11:00.232] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=148) para R | Esperou 1575.73 ms na fila[0m
+node3     | ⏳ [01:11:00.232] [NO 3] [3. ENTER]   Escrevendo no recurso R por 375 ms (Req C3-S3)...
+observer  | 
+observer  | [1;32m🔒 [01:11:00.233] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#3) | Volta do Token: 148 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+node3     | 🏁 [01:11:00.615] [NO 3] [4. EXIT]    Terminou escrita de 375 ms em R (Req C3-S3)
+node3     | [1;36m➡️  [01:11:00.615] [NO 3] [5. RELEASE] Liberou R (Req C3-S3) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:00.615] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#3) | Passando Token -> No 4 | Ativos em R: 0[0m
+node3     | ✅ [01:11:00.616] [NO 3] [6. COMMITTED] Confirmado acesso #3 para o Cliente 3
+node4     | [1;35m🔑 [01:11:00.616] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=149) para R | Esperou 2385.81 ms na fila[0m
+node4     | ⏳ [01:11:00.616] [NO 4] [3. ENTER]   Escrevendo no recurso R por 988 ms (Req C4-S3)...
+client3   | [01:11:00.616] [CLIENTE 3] Recebeu COMMITTED para C3-S3
+observer  | 
+observer  | [1;32m🔒 [01:11:00.617] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#3) | Volta do Token: 149 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+observer  | [1;33m🔓 [01:11:01.610] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#3) | Passando Token -> No 0 | Ativos em R: 0[0m
+node4     | 🏁 [01:11:01.610] [NO 4] [4. EXIT]    Terminou escrita de 988 ms em R (Req C4-S3)
+node4     | [1;36m➡️  [01:11:01.610] [NO 4] [5. RELEASE] Liberou R (Req C4-S3) e repassou o Token adiante[0m
+node4     | ✅ [01:11:01.612] [NO 4] [6. COMMITTED] Confirmado acesso #3 para o Cliente 4
+node0     | [1;35m🔑 [01:11:01.612] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=150) para R | Esperou 2656.46 ms na fila[0m
+node0     | ⏳ [01:11:01.612] [NO 0] [3. ENTER]   Escrevendo no recurso R por 450 ms (Req C0-S10)...
+client4   | [01:11:01.612] [CLIENTE 4] Recebeu COMMITTED para C4-S3
+observer  | 
+observer  | [1;32m🔒 [01:11:01.613] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#10) | Volta do Token: 150 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:11:02.067] [NO 0] [4. EXIT]    Terminou escrita de 450 ms em R (Req C0-S10)
+node0     | [1;36m➡️  [01:11:02.067] [NO 0] [5. RELEASE] Liberou R (Req C0-S10) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:02.067] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#10) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:02.068] [NO 0] [6. COMMITTED] Confirmado acesso #10 para o Cliente 0
+client0   | [01:11:02.068] [CLIENTE 0] Recebeu COMMITTED para C0-S10
+node0     | [1;34m📩 [01:11:02.069] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#11) -> Aguardando Token...[0m
+client0   | [01:11:02.068] [CLIENTE 0] Enviando REQUEST C0-S11 (11/30)
+node0     | [1;35m🔑 [01:11:02.118] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=155) para R | Esperou 49.54 ms na fila[0m
+node0     | ⏳ [01:11:02.118] [NO 0] [3. ENTER]   Escrevendo no recurso R por 310 ms (Req C0-S11)...
+observer  | 
+observer  | [1;32m🔒 [01:11:02.119] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#11) | Volta do Token: 155 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node1     | [1;34m📩 [01:11:02.422] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#3) -> Aguardando Token...[0m
+client1   | [01:11:02.422] [CLIENTE 1] Enviando REQUEST C1-S3 (3/10)
+node0     | 🏁 [01:11:02.433] [NO 0] [4. EXIT]    Terminou escrita de 310 ms em R (Req C0-S11)
+node0     | [1;36m➡️  [01:11:02.433] [NO 0] [5. RELEASE] Liberou R (Req C0-S11) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:02.432] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#11) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:02.434] [NO 0] [6. COMMITTED] Confirmado acesso #11 para o Cliente 0
+node0     | [1;34m📩 [01:11:02.434] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#12) -> Aguardando Token...[0m
+client0   | [01:11:02.434] [CLIENTE 0] Recebeu COMMITTED para C0-S11
+client0   | [01:11:02.434] [CLIENTE 0] Enviando REQUEST C0-S12 (12/30)
+node1     | [1;35m🔑 [01:11:02.434] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=156) para R | Esperou 11.85 ms na fila[0m
+node1     | ⏳ [01:11:02.434] [NO 1] [3. ENTER]   Escrevendo no recurso R por 640 ms (Req C1-S3)...
+observer  | 
+observer  | [1;32m🔒 [01:11:02.435] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#3) | Volta do Token: 156 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node2     | [1;34m📩 [01:11:02.661] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#4) -> Aguardando Token...[0m
+client2   | [01:11:02.661] [CLIENTE 2] Enviando REQUEST C2-S4 (4/10)
+observer  | [1;33m🔓 [01:11:03.077] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#3) | Passando Token -> No 2 | Ativos em R: 0[0m
+node1     | 🏁 [01:11:03.077] [NO 1] [4. EXIT]    Terminou escrita de 640 ms em R (Req C1-S3)
+node1     | [1;36m➡️  [01:11:03.077] [NO 1] [5. RELEASE] Liberou R (Req C1-S3) e repassou o Token adiante[0m
+node1     | ✅ [01:11:03.078] [NO 1] [6. COMMITTED] Confirmado acesso #3 para o Cliente 1
+node2     | [1;35m🔑 [01:11:03.078] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=157) para R | Esperou 417.27 ms na fila[0m
+node2     | ⏳ [01:11:03.078] [NO 2] [3. ENTER]   Escrevendo no recurso R por 321 ms (Req C2-S4)...
+client1   | [01:11:03.078] [CLIENTE 1] Recebeu COMMITTED para C1-S3
+observer  | 
+observer  | [1;32m🔒 [01:11:03.080] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#4) | Volta do Token: 157 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+client3   | [01:11:03.322] [CLIENTE 3] Enviando REQUEST C3-S4 (4/10)
+node3     | [1;34m📩 [01:11:03.322] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#4) -> Aguardando Token...[0m
+node2     | 🏁 [01:11:03.403] [NO 2] [4. EXIT]    Terminou escrita de 321 ms em R (Req C2-S4)
+node2     | [1;36m➡️  [01:11:03.403] [NO 2] [5. RELEASE] Liberou R (Req C2-S4) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:03.403] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#4) | Passando Token -> No 3 | Ativos em R: 0[0m
+node2     | ✅ [01:11:03.404] [NO 2] [6. COMMITTED] Confirmado acesso #4 para o Cliente 2
+node3     | [1;35m🔑 [01:11:03.404] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=158) para R | Esperou 81.78 ms na fila[0m
+node3     | ⏳ [01:11:03.404] [NO 3] [3. ENTER]   Escrevendo no recurso R por 741 ms (Req C3-S4)...
+client2   | [01:11:03.404] [CLIENTE 2] Recebeu COMMITTED para C2-S4
+observer  | 
+observer  | [1;32m🔒 [01:11:03.404] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#4) | Volta do Token: 158 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+node3     | 🏁 [01:11:04.153] [NO 3] [4. EXIT]    Terminou escrita de 741 ms em R (Req C3-S4)
+node3     | [1;36m➡️  [01:11:04.153] [NO 3] [5. RELEASE] Liberou R (Req C3-S4) e repassou o Token adiante[0m
+node3     | ✅ [01:11:04.153] [NO 3] [6. COMMITTED] Confirmado acesso #4 para o Cliente 3
+observer  | [1;33m🔓 [01:11:04.153] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#4) | Passando Token -> No 4 | Ativos em R: 0[0m
+client3   | [01:11:04.154] [CLIENTE 3] Recebeu COMMITTED para C3-S4
+node0     | [1;35m🔑 [01:11:04.165] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=160) para R | Esperou 1731.14 ms na fila[0m
+node0     | ⏳ [01:11:04.165] [NO 0] [3. ENTER]   Escrevendo no recurso R por 807 ms (Req C0-S12)...
+observer  | 
+observer  | [1;32m🔒 [01:11:04.166] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#12) | Volta do Token: 160 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:04.977] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#12) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:11:04.977] [NO 0] [4. EXIT]    Terminou escrita de 807 ms em R (Req C0-S12)
+node0     | [1;36m➡️  [01:11:04.977] [NO 0] [5. RELEASE] Liberou R (Req C0-S12) e repassou o Token adiante[0m
+node0     | ✅ [01:11:04.978] [NO 0] [6. COMMITTED] Confirmado acesso #12 para o Cliente 0
+client0   | [01:11:04.978] [CLIENTE 0] Recebeu COMMITTED para C0-S12
+client0   | [01:11:04.978] [CLIENTE 0] Enviando REQUEST C0-S13 (13/30)
+node0     | [1;34m📩 [01:11:04.978] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#13) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:11:05.028] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=165) para R | Esperou 49.45 ms na fila[0m
+node0     | ⏳ [01:11:05.028] [NO 0] [3. ENTER]   Escrevendo no recurso R por 305 ms (Req C0-S13)...
+observer  | 
+observer  | [1;32m🔒 [01:11:05.029] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#13) | Volta do Token: 165 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:11:05.339] [NO 0] [4. EXIT]    Terminou escrita de 305 ms em R (Req C0-S13)
+node0     | [1;36m➡️  [01:11:05.339] [NO 0] [5. RELEASE] Liberou R (Req C0-S13) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:05.339] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#13) | Passando Token -> No 1 | Ativos em R: 0[0m
+client0   | [01:11:05.340] [CLIENTE 0] Recebeu COMMITTED para C0-S13
+client0   | [01:11:05.340] [CLIENTE 0] Enviando REQUEST C0-S14 (14/30)
+node0     | ✅ [01:11:05.340] [NO 0] [6. COMMITTED] Confirmado acesso #13 para o Cliente 0
+node0     | [1;34m📩 [01:11:05.340] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#14) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:11:05.388] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=170) para R | Esperou 48.18 ms na fila[0m
+node0     | ⏳ [01:11:05.388] [NO 0] [3. ENTER]   Escrevendo no recurso R por 740 ms (Req C0-S14)...
+observer  | 
+observer  | [1;32m🔒 [01:11:05.389] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#14) | Volta do Token: 170 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+client2   | [01:11:05.395] [CLIENTE 2] Enviando REQUEST C2-S5 (5/10)
+node2     | [1;34m📩 [01:11:05.395] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#5) -> Aguardando Token...[0m
+observer  | [1;33m🔓 [01:11:06.137] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#14) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:11:06.137] [NO 0] [4. EXIT]    Terminou escrita de 740 ms em R (Req C0-S14)
+node0     | [1;36m➡️  [01:11:06.137] [NO 0] [5. RELEASE] Liberou R (Req C0-S14) e repassou o Token adiante[0m
+client0   | [01:11:06.137] [CLIENTE 0] Recebeu COMMITTED para C0-S14
+client0   | [01:11:06.137] [CLIENTE 0] Enviando REQUEST C0-S15 (15/30)
+node0     | ✅ [01:11:06.137] [NO 0] [6. COMMITTED] Confirmado acesso #14 para o Cliente 0
+node0     | [1;34m📩 [01:11:06.138] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#15) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:11:06.149] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=172) para R | Esperou 753.55 ms na fila[0m
+node2     | ⏳ [01:11:06.149] [NO 2] [3. ENTER]   Escrevendo no recurso R por 413 ms (Req C2-S5)...
+observer  | 
+observer  | [1;32m🔒 [01:11:06.150] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#5) | Volta do Token: 172 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+node4     | [1;34m📩 [01:11:06.266] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#4) -> Aguardando Token...[0m
+client4   | [01:11:06.265] [CLIENTE 4] Enviando REQUEST C4-S4 (4/10)
+node2     | 🏁 [01:11:06.565] [NO 2] [4. EXIT]    Terminou escrita de 413 ms em R (Req C2-S5)
+node2     | [1;36m➡️  [01:11:06.565] [NO 2] [5. RELEASE] Liberou R (Req C2-S5) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:06.565] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#5) | Passando Token -> No 3 | Ativos em R: 0[0m
+node2     | ✅ [01:11:06.566] [NO 2] [6. COMMITTED] Confirmado acesso #5 para o Cliente 2
+client2   | [01:11:06.566] [CLIENTE 2] Recebeu COMMITTED para C2-S5
+node4     | [1;35m🔑 [01:11:06.578] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=174) para R | Esperou 312.24 ms na fila[0m
+node4     | ⏳ [01:11:06.578] [NO 4] [3. ENTER]   Escrevendo no recurso R por 355 ms (Req C4-S4)...
+observer  | 
+observer  | [1;32m🔒 [01:11:06.580] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#4) | Volta do Token: 174 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+client1   | [01:11:06.908] [CLIENTE 1] Enviando REQUEST C1-S4 (4/10)
+node1     | [1;34m📩 [01:11:06.908] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#4) -> Aguardando Token...[0m
+node4     | 🏁 [01:11:06.942] [NO 4] [4. EXIT]    Terminou escrita de 355 ms em R (Req C4-S4)
+node4     | [1;36m➡️  [01:11:06.942] [NO 4] [5. RELEASE] Liberou R (Req C4-S4) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:06.942] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#4) | Passando Token -> No 0 | Ativos em R: 0[0m
+node4     | ✅ [01:11:06.943] [NO 4] [6. COMMITTED] Confirmado acesso #4 para o Cliente 4
+node0     | [1;35m🔑 [01:11:06.943] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=175) para R | Esperou 805.65 ms na fila[0m
+node0     | ⏳ [01:11:06.943] [NO 0] [3. ENTER]   Escrevendo no recurso R por 491 ms (Req C0-S15)...
+client4   | [01:11:06.943] [CLIENTE 4] Recebeu COMMITTED para C4-S4
+observer  | 
+observer  | [1;32m🔒 [01:11:06.944] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#15) | Volta do Token: 175 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node3     | [1;34m📩 [01:11:06.982] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#5) -> Aguardando Token...[0m
+client3   | [01:11:06.981] [CLIENTE 3] Enviando REQUEST C3-S5 (5/10)
+node0     | 🏁 [01:11:07.442] [NO 0] [4. EXIT]    Terminou escrita de 491 ms em R (Req C0-S15)
+node0     | [1;36m➡️  [01:11:07.442] [NO 0] [5. RELEASE] Liberou R (Req C0-S15) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:07.442] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#15) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:07.443] [NO 0] [6. COMMITTED] Confirmado acesso #15 para o Cliente 0
+node0     | [1;34m📩 [01:11:07.443] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#16) -> Aguardando Token...[0m
+node1     | [1;35m🔑 [01:11:07.443] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=176) para R | Esperou 534.88 ms na fila[0m
+node1     | ⏳ [01:11:07.443] [NO 1] [3. ENTER]   Escrevendo no recurso R por 710 ms (Req C1-S4)...
+client0   | [01:11:07.443] [CLIENTE 0] Recebeu COMMITTED para C0-S15
+client0   | [01:11:07.443] [CLIENTE 0] Enviando REQUEST C0-S16 (16/30)
+observer  | 
+observer  | [1;32m🔒 [01:11:07.444] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#4) | Volta do Token: 176 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node2     | [1;34m📩 [01:11:07.716] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#6) -> Aguardando Token...[0m
+client2   | [01:11:07.716] [CLIENTE 2] Enviando REQUEST C2-S6 (6/10)
+observer  | [1;33m🔓 [01:11:08.161] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#4) | Passando Token -> No 2 | Ativos em R: 0[0m
+node1     | 🏁 [01:11:08.161] [NO 1] [4. EXIT]    Terminou escrita de 710 ms em R (Req C1-S4)
+node1     | [1;36m➡️  [01:11:08.161] [NO 1] [5. RELEASE] Liberou R (Req C1-S4) e repassou o Token adiante[0m
+client1   | [01:11:08.162] [CLIENTE 1] Recebeu COMMITTED para C1-S4
+node1     | ✅ [01:11:08.162] [NO 1] [6. COMMITTED] Confirmado acesso #4 para o Cliente 1
+node2     | [1;35m🔑 [01:11:08.162] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=177) para R | Esperou 446.03 ms na fila[0m
+node2     | ⏳ [01:11:08.163] [NO 2] [3. ENTER]   Escrevendo no recurso R por 502 ms (Req C2-S6)...
+observer  | 
+observer  | [1;32m🔒 [01:11:08.163] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#6) | Volta do Token: 177 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:08.672] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#6) | Passando Token -> No 3 | Ativos em R: 0[0m
+node2     | 🏁 [01:11:08.672] [NO 2] [4. EXIT]    Terminou escrita de 502 ms em R (Req C2-S6)
+node2     | [1;36m➡️  [01:11:08.672] [NO 2] [5. RELEASE] Liberou R (Req C2-S6) e repassou o Token adiante[0m
+node2     | ✅ [01:11:08.673] [NO 2] [6. COMMITTED] Confirmado acesso #6 para o Cliente 2
+node3     | [1;35m🔑 [01:11:08.674] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=178) para R | Esperou 1692.00 ms na fila[0m
+node3     | ⏳ [01:11:08.674] [NO 3] [3. ENTER]   Escrevendo no recurso R por 419 ms (Req C3-S5)...
+client2   | [01:11:08.674] [CLIENTE 2] Recebeu COMMITTED para C2-S6
+observer  | 
+observer  | [1;32m🔒 [01:11:08.675] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#5) | Volta do Token: 178 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+node3     | 🏁 [01:11:09.100] [NO 3] [4. EXIT]    Terminou escrita de 419 ms em R (Req C3-S5)
+node3     | [1;36m➡️  [01:11:09.100] [NO 3] [5. RELEASE] Liberou R (Req C3-S5) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:09.100] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#5) | Passando Token -> No 4 | Ativos em R: 0[0m
+node3     | ✅ [01:11:09.101] [NO 3] [6. COMMITTED] Confirmado acesso #5 para o Cliente 3
+client3   | [01:11:09.101] [CLIENTE 3] Recebeu COMMITTED para C3-S5
+node0     | [1;35m🔑 [01:11:09.113] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=180) para R | Esperou 1669.63 ms na fila[0m
+node0     | ⏳ [01:11:09.113] [NO 0] [3. ENTER]   Escrevendo no recurso R por 762 ms (Req C0-S16)...
+observer  | 
+observer  | [1;32m🔒 [01:11:09.114] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#16) | Volta do Token: 180 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:11:09.882] [NO 0] [4. EXIT]    Terminou escrita de 762 ms em R (Req C0-S16)
+node0     | [1;36m➡️  [01:11:09.882] [NO 0] [5. RELEASE] Liberou R (Req C0-S16) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:09.882] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#16) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:09.883] [NO 0] [6. COMMITTED] Confirmado acesso #16 para o Cliente 0
+node0     | [1;34m📩 [01:11:09.883] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#17) -> Aguardando Token...[0m
+client0   | [01:11:09.883] [CLIENTE 0] Recebeu COMMITTED para C0-S16
+client0   | [01:11:09.883] [CLIENTE 0] Enviando REQUEST C0-S17 (17/30)
+node0     | [1;35m🔑 [01:11:09.931] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=185) para R | Esperou 48.06 ms na fila[0m
+node0     | ⏳ [01:11:09.931] [NO 0] [3. ENTER]   Escrevendo no recurso R por 449 ms (Req C0-S17)...
+observer  | 
+observer  | [1;32m🔒 [01:11:09.932] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#17) | Volta do Token: 185 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:11:10.388] [NO 0] [4. EXIT]    Terminou escrita de 449 ms em R (Req C0-S17)
+node0     | [1;36m➡️  [01:11:10.388] [NO 0] [5. RELEASE] Liberou R (Req C0-S17) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:10.388] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#17) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:10.389] [NO 0] [6. COMMITTED] Confirmado acesso #17 para o Cliente 0
+node0     | [1;34m📩 [01:11:10.389] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#18) -> Aguardando Token...[0m
+client0   | [01:11:10.389] [CLIENTE 0] Recebeu COMMITTED para C0-S17
+client0   | [01:11:10.389] [CLIENTE 0] Enviando REQUEST C0-S18 (18/30)
+node0     | [1;35m🔑 [01:11:10.437] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=190) para R | Esperou 47.49 ms na fila[0m
+node0     | ⏳ [01:11:10.437] [NO 0] [3. ENTER]   Escrevendo no recurso R por 567 ms (Req C0-S18)...
+observer  | 
+observer  | [1;32m🔒 [01:11:10.437] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#18) | Volta do Token: 190 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node4     | [1;34m📩 [01:11:10.524] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#5) -> Aguardando Token...[0m
+client4   | [01:11:10.523] [CLIENTE 4] Enviando REQUEST C4-S5 (5/10)
+node0     | 🏁 [01:11:11.011] [NO 0] [4. EXIT]    Terminou escrita de 567 ms em R (Req C0-S18)
+node0     | [1;36m➡️  [01:11:11.011] [NO 0] [5. RELEASE] Liberou R (Req C0-S18) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:11.010] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#18) | Passando Token -> No 1 | Ativos em R: 0[0m
+client0   | [01:11:11.012] [CLIENTE 0] Recebeu COMMITTED para C0-S18
+client0   | [01:11:11.012] [CLIENTE 0] Enviando REQUEST C0-S19 (19/30)
+node0     | ✅ [01:11:11.012] [NO 0] [6. COMMITTED] Confirmado acesso #18 para o Cliente 0
+node0     | [1;34m📩 [01:11:11.012] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#19) -> Aguardando Token...[0m
+node4     | [1;35m🔑 [01:11:11.049] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=194) para R | Esperou 525.43 ms na fila[0m
+node4     | ⏳ [01:11:11.049] [NO 4] [3. ENTER]   Escrevendo no recurso R por 436 ms (Req C4-S5)...
+observer  | 
+observer  | [1;32m🔒 [01:11:11.050] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#5) | Volta do Token: 194 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+client1   | [01:11:11.081] [CLIENTE 1] Enviando REQUEST C1-S5 (5/10)
+node1     | [1;34m📩 [01:11:11.081] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#5) -> Aguardando Token...[0m
+node4     | 🏁 [01:11:11.494] [NO 4] [4. EXIT]    Terminou escrita de 436 ms em R (Req C4-S5)
+node4     | [1;36m➡️  [01:11:11.494] [NO 4] [5. RELEASE] Liberou R (Req C4-S5) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:11.493] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#5) | Passando Token -> No 0 | Ativos em R: 0[0m
+client4   | [01:11:11.494] [CLIENTE 4] Recebeu COMMITTED para C4-S5
+node0     | [1;35m🔑 [01:11:11.494] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=195) para R | Esperou 482.03 ms na fila[0m
+node0     | ⏳ [01:11:11.494] [NO 0] [3. ENTER]   Escrevendo no recurso R por 325 ms (Req C0-S19)...
+node4     | ✅ [01:11:11.494] [NO 4] [6. COMMITTED] Confirmado acesso #5 para o Cliente 4
+observer  | 
+observer  | [1;32m🔒 [01:11:11.495] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#19) | Volta do Token: 195 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:11.827] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#19) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:11:11.827] [NO 0] [4. EXIT]    Terminou escrita de 325 ms em R (Req C0-S19)
+node0     | [1;36m➡️  [01:11:11.827] [NO 0] [5. RELEASE] Liberou R (Req C0-S19) e repassou o Token adiante[0m
+client0   | [01:11:11.828] [CLIENTE 0] Recebeu COMMITTED para C0-S19
+client0   | [01:11:11.828] [CLIENTE 0] Enviando REQUEST C0-S20 (20/30)
+node0     | ✅ [01:11:11.828] [NO 0] [6. COMMITTED] Confirmado acesso #19 para o Cliente 0
+node0     | [1;34m📩 [01:11:11.828] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#20) -> Aguardando Token...[0m
+node1     | [1;35m🔑 [01:11:11.828] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=196) para R | Esperou 746.15 ms na fila[0m
+node1     | ⏳ [01:11:11.828] [NO 1] [3. ENTER]   Escrevendo no recurso R por 403 ms (Req C1-S5)...
+observer  | 
+observer  | [1;32m🔒 [01:11:11.828] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#5) | Volta do Token: 196 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:12.237] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#5) | Passando Token -> No 2 | Ativos em R: 0[0m
+node1     | 🏁 [01:11:12.237] [NO 1] [4. EXIT]    Terminou escrita de 403 ms em R (Req C1-S5)
+node1     | [1;36m➡️  [01:11:12.237] [NO 1] [5. RELEASE] Liberou R (Req C1-S5) e repassou o Token adiante[0m
+client1   | [01:11:12.238] [CLIENTE 1] Recebeu COMMITTED para C1-S5
+node1     | ✅ [01:11:12.238] [NO 1] [6. COMMITTED] Confirmado acesso #5 para o Cliente 1
+node0     | [1;35m🔑 [01:11:12.273] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=200) para R | Esperou 445.39 ms na fila[0m
+node0     | ⏳ [01:11:12.273] [NO 0] [3. ENTER]   Escrevendo no recurso R por 399 ms (Req C0-S20)...
+observer  | 
+observer  | [1;32m🔒 [01:11:12.274] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#20) | Volta do Token: 200 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node4     | [1;34m📩 [01:11:12.679] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#6) -> Aguardando Token...[0m
+client4   | [01:11:12.678] [CLIENTE 4] Enviando REQUEST C4-S6 (6/10)
+observer  | [1;33m🔓 [01:11:12.680] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#20) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:11:12.681] [NO 0] [4. EXIT]    Terminou escrita de 399 ms em R (Req C0-S20)
+node0     | [1;36m➡️  [01:11:12.681] [NO 0] [5. RELEASE] Liberou R (Req C0-S20) e repassou o Token adiante[0m
+node0     | ✅ [01:11:12.681] [NO 0] [6. COMMITTED] Confirmado acesso #20 para o Cliente 0
+node0     | [1;34m📩 [01:11:12.681] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#21) -> Aguardando Token...[0m
+client0   | [01:11:12.681] [CLIENTE 0] Recebeu COMMITTED para C0-S20
+client0   | [01:11:12.681] [CLIENTE 0] Enviando REQUEST C0-S21 (21/30)
+node4     | [1;35m🔑 [01:11:12.717] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=204) para R | Esperou 38.33 ms na fila[0m
+node4     | ⏳ [01:11:12.717] [NO 4] [3. ENTER]   Escrevendo no recurso R por 913 ms (Req C4-S6)...
+observer  | 
+observer  | [1;32m🔒 [01:11:12.718] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#6) | Volta do Token: 204 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+node2     | [1;34m📩 [01:11:12.960] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#7) -> Aguardando Token...[0m
+client2   | [01:11:12.960] [CLIENTE 2] Enviando REQUEST C2-S7 (7/10)
+node4     | 🏁 [01:11:13.635] [NO 4] [4. EXIT]    Terminou escrita de 913 ms em R (Req C4-S6)
+node4     | [1;36m➡️  [01:11:13.635] [NO 4] [5. RELEASE] Liberou R (Req C4-S6) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:13.634] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#6) | Passando Token -> No 0 | Ativos em R: 0[0m
+node4     | ✅ [01:11:13.635] [NO 4] [6. COMMITTED] Confirmado acesso #6 para o Cliente 4
+node0     | [1;35m🔑 [01:11:13.635] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=205) para R | Esperou 953.66 ms na fila[0m
+node0     | ⏳ [01:11:13.635] [NO 0] [3. ENTER]   Escrevendo no recurso R por 999 ms (Req C0-S21)...
+client4   | [01:11:13.635] [CLIENTE 4] Recebeu COMMITTED para C4-S6
+observer  | 
+observer  | [1;32m🔒 [01:11:13.636] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#21) | Volta do Token: 205 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+client3   | [01:11:14.092] [CLIENTE 3] Enviando REQUEST C3-S6 (6/10)
+node3     | [1;34m📩 [01:11:14.093] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#6) -> Aguardando Token...[0m
+node0     | 🏁 [01:11:14.642] [NO 0] [4. EXIT]    Terminou escrita de 999 ms em R (Req C0-S21)
+node0     | [1;36m➡️  [01:11:14.642] [NO 0] [5. RELEASE] Liberou R (Req C0-S21) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:14.642] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#21) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:14.643] [NO 0] [6. COMMITTED] Confirmado acesso #21 para o Cliente 0
+node0     | [1;34m📩 [01:11:14.643] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#22) -> Aguardando Token...[0m
+client0   | [01:11:14.643] [CLIENTE 0] Recebeu COMMITTED para C0-S21
+client0   | [01:11:14.643] [CLIENTE 0] Enviando REQUEST C0-S22 (22/30)
+node2     | [1;35m🔑 [01:11:14.655] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=207) para R | Esperou 1694.14 ms na fila[0m
+node2     | ⏳ [01:11:14.655] [NO 2] [3. ENTER]   Escrevendo no recurso R por 950 ms (Req C2-S7)...
+observer  | 
+observer  | [1;32m🔒 [01:11:14.655] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#7) | Volta do Token: 207 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+client1   | [01:11:14.822] [CLIENTE 1] Enviando REQUEST C1-S6 (6/10)
+node1     | [1;34m📩 [01:11:14.823] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#6) -> Aguardando Token...[0m
+observer  | [1;33m🔓 [01:11:15.611] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#7) | Passando Token -> No 3 | Ativos em R: 0[0m
+node2     | 🏁 [01:11:15.611] [NO 2] [4. EXIT]    Terminou escrita de 950 ms em R (Req C2-S7)
+node2     | [1;36m➡️  [01:11:15.611] [NO 2] [5. RELEASE] Liberou R (Req C2-S7) e repassou o Token adiante[0m
+client2   | [01:11:15.612] [CLIENTE 2] Recebeu COMMITTED para C2-S7
+node3     | [1;35m🔑 [01:11:15.612] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=208) para R | Esperou 1518.85 ms na fila[0m
+node3     | ⏳ [01:11:15.612] [NO 3] [3. ENTER]   Escrevendo no recurso R por 750 ms (Req C3-S6)...
+node2     | ✅ [01:11:15.612] [NO 2] [6. COMMITTED] Confirmado acesso #7 para o Cliente 2
+observer  | 
+observer  | [1;32m🔒 [01:11:15.612] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#6) | Volta do Token: 208 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+node3     | 🏁 [01:11:16.364] [NO 3] [4. EXIT]    Terminou escrita de 750 ms em R (Req C3-S6)
+client3   | [01:11:16.365] [CLIENTE 3] Recebeu COMMITTED para C3-S6
+node3     | [1;36m➡️  [01:11:16.364] [NO 3] [5. RELEASE] Liberou R (Req C3-S6) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:16.364] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#6) | Passando Token -> No 4 | Ativos em R: 0[0m
+node3     | ✅ [01:11:16.365] [NO 3] [6. COMMITTED] Confirmado acesso #6 para o Cliente 3
+node0     | [1;35m🔑 [01:11:16.376] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=210) para R | Esperou 1733.05 ms na fila[0m
+node0     | ⏳ [01:11:16.376] [NO 0] [3. ENTER]   Escrevendo no recurso R por 452 ms (Req C0-S22)...
+observer  | 
+observer  | [1;32m🔒 [01:11:16.376] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#22) | Volta do Token: 210 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:16.834] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#22) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:11:16.834] [NO 0] [4. EXIT]    Terminou escrita de 452 ms em R (Req C0-S22)
+node0     | [1;36m➡️  [01:11:16.834] [NO 0] [5. RELEASE] Liberou R (Req C0-S22) e repassou o Token adiante[0m
+client0   | [01:11:16.834] [CLIENTE 0] Recebeu COMMITTED para C0-S22
+client0   | [01:11:16.834] [CLIENTE 0] Enviando REQUEST C0-S23 (23/30)
+node0     | ✅ [01:11:16.834] [NO 0] [6. COMMITTED] Confirmado acesso #22 para o Cliente 0
+node0     | [1;34m📩 [01:11:16.834] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#23) -> Aguardando Token...[0m
+node1     | [1;35m🔑 [01:11:16.834] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=211) para R | Esperou 2011.56 ms na fila[0m
+node1     | ⏳ [01:11:16.834] [NO 1] [3. ENTER]   Escrevendo no recurso R por 774 ms (Req C1-S6)...
+observer  | 
+observer  | [1;32m🔒 [01:11:16.834] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#6) | Volta do Token: 211 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:17.615] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#6) | Passando Token -> No 2 | Ativos em R: 0[0m
+node1     | 🏁 [01:11:17.616] [NO 1] [4. EXIT]    Terminou escrita de 774 ms em R (Req C1-S6)
+node1     | [1;36m➡️  [01:11:17.616] [NO 1] [5. RELEASE] Liberou R (Req C1-S6) e repassou o Token adiante[0m
+client1   | [01:11:17.617] [CLIENTE 1] Recebeu COMMITTED para C1-S6
+node1     | ✅ [01:11:17.617] [NO 1] [6. COMMITTED] Confirmado acesso #6 para o Cliente 1
+node0     | [1;35m🔑 [01:11:17.655] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=215) para R | Esperou 821.16 ms na fila[0m
+node0     | ⏳ [01:11:17.656] [NO 0] [3. ENTER]   Escrevendo no recurso R por 694 ms (Req C0-S23)...
+observer  | 
+observer  | [1;32m🔒 [01:11:17.656] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#23) | Volta do Token: 215 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:11:18.357] [NO 0] [4. EXIT]    Terminou escrita de 694 ms em R (Req C0-S23)
+node0     | [1;36m➡️  [01:11:18.357] [NO 0] [5. RELEASE] Liberou R (Req C0-S23) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:18.357] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#23) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:18.358] [NO 0] [6. COMMITTED] Confirmado acesso #23 para o Cliente 0
+node0     | [1;34m📩 [01:11:18.358] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#24) -> Aguardando Token...[0m
+client0   | [01:11:18.358] [CLIENTE 0] Recebeu COMMITTED para C0-S23
+client0   | [01:11:18.358] [CLIENTE 0] Enviando REQUEST C0-S24 (24/30)
+node0     | [1;35m🔑 [01:11:18.405] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=220) para R | Esperou 46.77 ms na fila[0m
+node0     | ⏳ [01:11:18.405] [NO 0] [3. ENTER]   Escrevendo no recurso R por 660 ms (Req C0-S24)...
+observer  | 
+observer  | [1;32m🔒 [01:11:18.406] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#24) | Volta do Token: 220 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+client4   | [01:11:18.481] [CLIENTE 4] Enviando REQUEST C4-S7 (7/10)
+node4     | [1;34m📩 [01:11:18.481] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#7) -> Aguardando Token...[0m
+client3   | [01:11:18.967] [CLIENTE 3] Enviando REQUEST C3-S7 (7/10)
+node3     | [1;34m📩 [01:11:18.967] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#7) -> Aguardando Token...[0m
+observer  | [1;33m🔓 [01:11:19.073] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#24) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:11:19.073] [NO 0] [4. EXIT]    Terminou escrita de 660 ms em R (Req C0-S24)
+node0     | [1;36m➡️  [01:11:19.073] [NO 0] [5. RELEASE] Liberou R (Req C0-S24) e repassou o Token adiante[0m
+client0   | [01:11:19.075] [CLIENTE 0] Recebeu COMMITTED para C0-S24
+client0   | [01:11:19.075] [CLIENTE 0] Enviando REQUEST C0-S25 (25/30)
+node0     | ✅ [01:11:19.075] [NO 0] [6. COMMITTED] Confirmado acesso #24 para o Cliente 0
+node0     | [1;34m📩 [01:11:19.075] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#25) -> Aguardando Token...[0m
+node3     | [1;35m🔑 [01:11:19.100] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=223) para R | Esperou 132.73 ms na fila[0m
+node3     | ⏳ [01:11:19.100] [NO 3] [3. ENTER]   Escrevendo no recurso R por 576 ms (Req C3-S7)...
+observer  | 
+observer  | [1;32m🔒 [01:11:19.100] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#7) | Volta do Token: 223 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:19.684] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#7) | Passando Token -> No 4 | Ativos em R: 0[0m
+node3     | 🏁 [01:11:19.684] [NO 3] [4. EXIT]    Terminou escrita de 576 ms em R (Req C3-S7)
+node3     | [1;36m➡️  [01:11:19.684] [NO 3] [5. RELEASE] Liberou R (Req C3-S7) e repassou o Token adiante[0m
+node4     | [1;35m🔑 [01:11:19.684] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=224) para R | Esperou 1203.44 ms na fila[0m
+node4     | ⏳ [01:11:19.684] [NO 4] [3. ENTER]   Escrevendo no recurso R por 224 ms (Req C4-S7)...
+node3     | ✅ [01:11:19.684] [NO 3] [6. COMMITTED] Confirmado acesso #7 para o Cliente 3
+client3   | [01:11:19.684] [CLIENTE 3] Recebeu COMMITTED para C3-S7
+observer  | 
+observer  | [1;32m🔒 [01:11:19.685] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#7) | Volta do Token: 224 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+observer  | [1;33m🔓 [01:11:19.916] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#7) | Passando Token -> No 0 | Ativos em R: 0[0m
+node4     | 🏁 [01:11:19.916] [NO 4] [4. EXIT]    Terminou escrita de 224 ms em R (Req C4-S7)
+node4     | [1;36m➡️  [01:11:19.916] [NO 4] [5. RELEASE] Liberou R (Req C4-S7) e repassou o Token adiante[0m
+node4     | ✅ [01:11:19.917] [NO 4] [6. COMMITTED] Confirmado acesso #7 para o Cliente 4
+client4   | [01:11:19.917] [CLIENTE 4] Recebeu COMMITTED para C4-S7
+node0     | [1;35m🔑 [01:11:19.917] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=225) para R | Esperou 841.73 ms na fila[0m
+node0     | ⏳ [01:11:19.917] [NO 0] [3. ENTER]   Escrevendo no recurso R por 325 ms (Req C0-S25)...
+observer  | 
+observer  | [1;32m🔒 [01:11:19.918] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#25) | Volta do Token: 225 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+client2   | [01:11:19.960] [CLIENTE 2] Enviando REQUEST C2-S8 (8/10)
+node2     | [1;34m📩 [01:11:19.960] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#8) -> Aguardando Token...[0m
+node0     | 🏁 [01:11:20.250] [NO 0] [4. EXIT]    Terminou escrita de 325 ms em R (Req C0-S25)
+node0     | [1;36m➡️  [01:11:20.250] [NO 0] [5. RELEASE] Liberou R (Req C0-S25) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:20.249] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#25) | Passando Token -> No 1 | Ativos em R: 0[0m
+client0   | [01:11:20.250] [CLIENTE 0] Recebeu COMMITTED para C0-S25
+client0   | [01:11:20.250] [CLIENTE 0] Enviando REQUEST C0-S26 (26/30)
+node0     | ✅ [01:11:20.250] [NO 0] [6. COMMITTED] Confirmado acesso #25 para o Cliente 0
+node0     | [1;34m📩 [01:11:20.251] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#26) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:11:20.262] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=227) para R | Esperou 302.23 ms na fila[0m
+node2     | ⏳ [01:11:20.263] [NO 2] [3. ENTER]   Escrevendo no recurso R por 695 ms (Req C2-S8)...
+observer  | 
+observer  | [1;32m🔒 [01:11:20.263] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#8) | Volta do Token: 227 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:20.966] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#8) | Passando Token -> No 3 | Ativos em R: 0[0m
+node2     | 🏁 [01:11:20.966] [NO 2] [4. EXIT]    Terminou escrita de 695 ms em R (Req C2-S8)
+node2     | [1;36m➡️  [01:11:20.966] [NO 2] [5. RELEASE] Liberou R (Req C2-S8) e repassou o Token adiante[0m
+node2     | ✅ [01:11:20.967] [NO 2] [6. COMMITTED] Confirmado acesso #8 para o Cliente 2
+client2   | [01:11:20.967] [CLIENTE 2] Recebeu COMMITTED para C2-S8
+node0     | [1;35m🔑 [01:11:20.990] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=230) para R | Esperou 739.86 ms na fila[0m
+node0     | ⏳ [01:11:20.991] [NO 0] [3. ENTER]   Escrevendo no recurso R por 869 ms (Req C0-S26)...
+observer  | 
+observer  | [1;32m🔒 [01:11:20.991] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#26) | Volta do Token: 230 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node1     | [1;34m📩 [01:11:21.209] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#7) -> Aguardando Token...[0m
+client1   | [01:11:21.209] [CLIENTE 1] Enviando REQUEST C1-S7 (7/10)
+node0     | 🏁 [01:11:21.865] [NO 0] [4. EXIT]    Terminou escrita de 869 ms em R (Req C0-S26)
+node0     | [1;36m➡️  [01:11:21.865] [NO 0] [5. RELEASE] Liberou R (Req C0-S26) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:21.864] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#26) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:21.866] [NO 0] [6. COMMITTED] Confirmado acesso #26 para o Cliente 0
+node1     | [1;35m🔑 [01:11:21.867] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=231) para R | Esperou 657.21 ms na fila[0m
+node1     | ⏳ [01:11:21.867] [NO 1] [3. ENTER]   Escrevendo no recurso R por 783 ms (Req C1-S7)...
+client0   | [01:11:21.866] [CLIENTE 0] Recebeu COMMITTED para C0-S26
+client0   | [01:11:21.866] [CLIENTE 0] Enviando REQUEST C0-S27 (27/30)
+node0     | [1;34m📩 [01:11:21.867] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#27) -> Aguardando Token...[0m
+observer  | 
+observer  | [1;32m🔒 [01:11:21.868] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#7) | Volta do Token: 231 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+client1   | [01:11:22.658] [CLIENTE 1] Recebeu COMMITTED para C1-S7
+node1     | 🏁 [01:11:22.658] [NO 1] [4. EXIT]    Terminou escrita de 783 ms em R (Req C1-S7)
+node1     | [1;36m➡️  [01:11:22.658] [NO 1] [5. RELEASE] Liberou R (Req C1-S7) e repassou o Token adiante[0m
+node1     | ✅ [01:11:22.658] [NO 1] [6. COMMITTED] Confirmado acesso #7 para o Cliente 1
+observer  | [1;33m🔓 [01:11:22.658] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#7) | Passando Token -> No 2 | Ativos em R: 0[0m
+node0     | [1;35m🔑 [01:11:22.696] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=235) para R | Esperou 829.87 ms na fila[0m
+node0     | ⏳ [01:11:22.697] [NO 0] [3. ENTER]   Escrevendo no recurso R por 668 ms (Req C0-S27)...
+observer  | 
+observer  | [1;32m🔒 [01:11:22.698] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#27) | Volta do Token: 235 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:11:23.370] [NO 0] [4. EXIT]    Terminou escrita de 668 ms em R (Req C0-S27)
+node0     | [1;36m➡️  [01:11:23.370] [NO 0] [5. RELEASE] Liberou R (Req C0-S27) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:23.370] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#27) | Passando Token -> No 1 | Ativos em R: 0[0m
+client0   | [01:11:23.371] [CLIENTE 0] Recebeu COMMITTED para C0-S27
+node0     | ✅ [01:11:23.371] [NO 0] [6. COMMITTED] Confirmado acesso #27 para o Cliente 0
+client0   | [01:11:23.371] [CLIENTE 0] Enviando REQUEST C0-S28 (28/30)
+node0     | [1;34m📩 [01:11:23.371] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#28) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:11:23.419] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=240) para R | Esperou 48.35 ms na fila[0m
+node0     | ⏳ [01:11:23.419] [NO 0] [3. ENTER]   Escrevendo no recurso R por 819 ms (Req C0-S28)...
+observer  | 
+observer  | [1;32m🔒 [01:11:23.420] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#28) | Volta do Token: 240 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node3     | [1;34m📩 [01:11:23.975] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#8) -> Aguardando Token...[0m
+client3   | [01:11:23.974] [CLIENTE 3] Enviando REQUEST C3-S8 (8/10)
+node4     | [1;34m📩 [01:11:24.148] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#8) -> Aguardando Token...[0m
+client4   | [01:11:24.147] [CLIENTE 4] Enviando REQUEST C4-S8 (8/10)
+observer  | [1;33m🔓 [01:11:24.246] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#28) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:11:24.246] [NO 0] [4. EXIT]    Terminou escrita de 819 ms em R (Req C0-S28)
+node0     | [1;36m➡️  [01:11:24.246] [NO 0] [5. RELEASE] Liberou R (Req C0-S28) e repassou o Token adiante[0m
+node0     | ✅ [01:11:24.247] [NO 0] [6. COMMITTED] Confirmado acesso #28 para o Cliente 0
+node0     | [1;34m📩 [01:11:24.247] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#29) -> Aguardando Token...[0m
+client0   | [01:11:24.247] [CLIENTE 0] Recebeu COMMITTED para C0-S28
+client0   | [01:11:24.247] [CLIENTE 0] Enviando REQUEST C0-S29 (29/30)
+node3     | [1;35m🔑 [01:11:24.270] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=243) para R | Esperou 295.16 ms na fila[0m
+node3     | ⏳ [01:11:24.270] [NO 3] [3. ENTER]   Escrevendo no recurso R por 240 ms (Req C3-S8)...
+observer  | 
+observer  | [1;32m🔒 [01:11:24.271] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#8) | Volta do Token: 243 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:24.516] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#8) | Passando Token -> No 4 | Ativos em R: 0[0m
+node3     | 🏁 [01:11:24.516] [NO 3] [4. EXIT]    Terminou escrita de 240 ms em R (Req C3-S8)
+node3     | [1;36m➡️  [01:11:24.516] [NO 3] [5. RELEASE] Liberou R (Req C3-S8) e repassou o Token adiante[0m
+node4     | [1;35m🔑 [01:11:24.517] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=244) para R | Esperou 369.30 ms na fila[0m
+node4     | ⏳ [01:11:24.517] [NO 4] [3. ENTER]   Escrevendo no recurso R por 558 ms (Req C4-S8)...
+node3     | ✅ [01:11:24.517] [NO 3] [6. COMMITTED] Confirmado acesso #8 para o Cliente 3
+client3   | [01:11:24.517] [CLIENTE 3] Recebeu COMMITTED para C3-S8
+observer  | 
+observer  | [1;32m🔒 [01:11:24.518] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#8) | Volta do Token: 244 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+node2     | [1;34m📩 [01:11:24.904] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#9) -> Aguardando Token...[0m
+client2   | [01:11:24.904] [CLIENTE 2] Enviando REQUEST C2-S9 (9/10)
+node4     | 🏁 [01:11:25.078] [NO 4] [4. EXIT]    Terminou escrita de 558 ms em R (Req C4-S8)
+node4     | [1;36m➡️  [01:11:25.078] [NO 4] [5. RELEASE] Liberou R (Req C4-S8) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:25.078] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#8) | Passando Token -> No 0 | Ativos em R: 0[0m
+client4   | [01:11:25.079] [CLIENTE 4] Recebeu COMMITTED para C4-S8
+node4     | ✅ [01:11:25.079] [NO 4] [6. COMMITTED] Confirmado acesso #8 para o Cliente 4
+node0     | [1;35m🔑 [01:11:25.079] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=245) para R | Esperou 831.82 ms na fila[0m
+node0     | ⏳ [01:11:25.079] [NO 0] [3. ENTER]   Escrevendo no recurso R por 240 ms (Req C0-S29)...
+observer  | 
+observer  | [1;32m🔒 [01:11:25.080] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#29) | Volta do Token: 245 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node0     | 🏁 [01:11:25.328] [NO 0] [4. EXIT]    Terminou escrita de 240 ms em R (Req C0-S29)
+node0     | [1;36m➡️  [01:11:25.328] [NO 0] [5. RELEASE] Liberou R (Req C0-S29) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:25.327] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#29) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | ✅ [01:11:25.328] [NO 0] [6. COMMITTED] Confirmado acesso #29 para o Cliente 0
+node0     | [1;34m📩 [01:11:25.329] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#30) -> Aguardando Token...[0m
+client0   | [01:11:25.329] [CLIENTE 0] Recebeu COMMITTED para C0-S29
+client0   | [01:11:25.329] [CLIENTE 0] Enviando REQUEST C0-S30 (30/30)
+node2     | [1;35m🔑 [01:11:25.339] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=247) para R | Esperou 435.07 ms na fila[0m
+node2     | ⏳ [01:11:25.339] [NO 2] [3. ENTER]   Escrevendo no recurso R por 580 ms (Req C2-S9)...
+observer  | 
+observer  | [1;32m🔒 [01:11:25.340] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#9) | Volta do Token: 247 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+node3     | [1;34m📩 [01:11:25.883] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#9) -> Aguardando Token...[0m
+client3   | [01:11:25.883] [CLIENTE 3] Enviando REQUEST C3-S9 (9/10)
+node2     | 🏁 [01:11:25.923] [NO 2] [4. EXIT]    Terminou escrita de 580 ms em R (Req C2-S9)
+node2     | [1;36m➡️  [01:11:25.923] [NO 2] [5. RELEASE] Liberou R (Req C2-S9) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:25.923] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#9) | Passando Token -> No 3 | Ativos em R: 0[0m
+node3     | [1;35m🔑 [01:11:25.924] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=248) para R | Esperou 40.85 ms na fila[0m
+node3     | ⏳ [01:11:25.924] [NO 3] [3. ENTER]   Escrevendo no recurso R por 944 ms (Req C3-S9)...
+client2   | [01:11:25.924] [CLIENTE 2] Recebeu COMMITTED para C2-S9
+node2     | ✅ [01:11:25.924] [NO 2] [6. COMMITTED] Confirmado acesso #9 para o Cliente 2
+observer  | 
+observer  | [1;32m🔒 [01:11:25.925] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#9) | Volta do Token: 248 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+client1   | [01:11:26.472] [CLIENTE 1] Enviando REQUEST C1-S8 (8/10)
+node1     | [1;34m📩 [01:11:26.472] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#8) -> Aguardando Token...[0m
+observer  | [1;33m🔓 [01:11:26.874] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#9) | Passando Token -> No 4 | Ativos em R: 0[0m
+node3     | 🏁 [01:11:26.874] [NO 3] [4. EXIT]    Terminou escrita de 944 ms em R (Req C3-S9)
+node3     | [1;36m➡️  [01:11:26.874] [NO 3] [5. RELEASE] Liberou R (Req C3-S9) e repassou o Token adiante[0m
+node3     | ✅ [01:11:26.874] [NO 3] [6. COMMITTED] Confirmado acesso #9 para o Cliente 3
+client3   | [01:11:26.874] [CLIENTE 3] Recebeu COMMITTED para C3-S9
+node0     | [1;35m🔑 [01:11:26.886] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=250) para R | Esperou 1557.77 ms na fila[0m
+node0     | ⏳ [01:11:26.886] [NO 0] [3. ENTER]   Escrevendo no recurso R por 436 ms (Req C0-S30)...
+observer  | 
+observer  | [1;32m🔒 [01:11:26.887] [BEGIN] No 0 ENTROU na Secao Critica | Pedido: Cliente 0 (#30) | Volta do Token: 250 | Ativos em R: 1[0m
+observer  |    Anel: [1;32m[ P0 USANDO R ][0m --> ( P1 ) --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;33m🔓 [01:11:27.329] [END]   No 0 SAIU da Secao Critica   | Pedido: Cliente 0 (#30) | Passando Token -> No 1 | Ativos em R: 0[0m
+node0     | 🏁 [01:11:27.330] [NO 0] [4. EXIT]    Terminou escrita de 436 ms em R (Req C0-S30)
+node0     | [1;36m➡️  [01:11:27.330] [NO 0] [5. RELEASE] Liberou R (Req C0-S30) e repassou o Token adiante[0m
+node0     | ✅ [01:11:27.331] [NO 0] [6. COMMITTED] Confirmado acesso #30 para o Cliente 0
+client0   | [01:11:27.331] [CLIENTE 0] Recebeu COMMITTED para C0-S30
+client0   | [01:11:27.331] [CLIENTE 0] Finalizou todos os 30 acessos.
+node1     | [1;35m🔑 [01:11:27.331] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=251) para R | Esperou 859.10 ms na fila[0m
+node1     | ⏳ [01:11:27.331] [NO 1] [3. ENTER]   Escrevendo no recurso R por 412 ms (Req C1-S8)...
+observer  | 
+observer  | [1;32m🔒 [01:11:27.332] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#8) | Volta do Token: 251 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+observer  | [1;36mℹ️  [01:11:27.332] [STATUS] Gerenciador No 0 finalizou todos os pedidos do seu cliente (1/5 concluidos)
+[Kclient0 exited with code 0
+node1     | 🏁 [01:11:27.751] [NO 1] [4. EXIT]    Terminou escrita de 412 ms em R (Req C1-S8)
+node1     | [1;36m➡️  [01:11:27.751] [NO 1] [5. RELEASE] Liberou R (Req C1-S8) e repassou o Token adiante[0m
+observer  | [0m[1;33m🔓 [01:11:27.751] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#8) | Passando Token -> No 2 | Ativos em R: 0[0m
+client1   | [01:11:27.751] [CLIENTE 1] Recebeu COMMITTED para C1-S8
+node1     | ✅ [01:11:27.751] [NO 1] [6. COMMITTED] Confirmado acesso #8 para o Cliente 1
+node4     | [1;34m📩 [01:11:28.896] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#9) -> Aguardando Token...[0m
+client4   | [01:11:28.896] [CLIENTE 4] Enviando REQUEST C4-S9 (9/10)
+node4     | [1;35m🔑 [01:11:28.953] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=354) para R | Esperou 56.63 ms na fila[0m
+node4     | ⏳ [01:11:28.953] [NO 4] [3. ENTER]   Escrevendo no recurso R por 396 ms (Req C4-S9)...
+observer  | 
+observer  | [1;32m🔒 [01:11:28.953] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#9) | Volta do Token: 354 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+node3     | [1;34m📩 [01:11:29.162] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#10) -> Aguardando Token...[0m
+client3   | [01:11:29.162] [CLIENTE 3] Enviando REQUEST C3-S10 (10/10)
+observer  | [1;33m🔓 [01:11:29.356] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#9) | Passando Token -> No 0 | Ativos em R: 0[0m
+node4     | 🏁 [01:11:29.356] [NO 4] [4. EXIT]    Terminou escrita de 396 ms em R (Req C4-S9)
+node4     | [1;36m➡️  [01:11:29.356] [NO 4] [5. RELEASE] Liberou R (Req C4-S9) e repassou o Token adiante[0m
+client4   | [01:11:29.357] [CLIENTE 4] Recebeu COMMITTED para C4-S9
+node4     | ✅ [01:11:29.357] [NO 4] [6. COMMITTED] Confirmado acesso #9 para o Cliente 4
+node3     | [1;35m🔑 [01:11:29.394] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=358) para R | Esperou 231.72 ms na fila[0m
+node3     | ⏳ [01:11:29.394] [NO 3] [3. ENTER]   Escrevendo no recurso R por 777 ms (Req C3-S10)...
+observer  | 
+observer  | [1;32m🔒 [01:11:29.395] [BEGIN] No 3 ENTROU na Secao Critica | Pedido: Cliente 3 (#10) | Volta do Token: 358 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> [1;32m[ P3 USANDO R ][0m --> ( P4 ) --> (P0)
+node2     | [1;34m📩 [01:11:29.669] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#10) -> Aguardando Token...[0m
+client2   | [01:11:29.668] [CLIENTE 2] Enviando REQUEST C2-S10 (10/10)
+node3     | 🏁 [01:11:30.175] [NO 3] [4. EXIT]    Terminou escrita de 777 ms em R (Req C3-S10)
+node3     | [1;36m➡️  [01:11:30.175] [NO 3] [5. RELEASE] Liberou R (Req C3-S10) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:30.175] [END]   No 3 SAIU da Secao Critica   | Pedido: Cliente 3 (#10) | Passando Token -> No 4 | Ativos em R: 0[0m
+client3   | [01:11:30.176] [CLIENTE 3] Recebeu COMMITTED para C3-S10
+client3   | [01:11:30.176] [CLIENTE 3] Finalizou todos os 10 acessos.
+node3     | ✅ [01:11:30.176] [NO 3] [6. COMMITTED] Confirmado acesso #10 para o Cliente 3
+observer  | [1;36mℹ️  [01:11:30.177] [STATUS] Gerenciador No 3 finalizou todos os pedidos do seu cliente (2/5 concluidos)
+node2     | [1;35m🔑 [01:11:30.208] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=362) para R | Esperou 539.41 ms na fila[0m
+node2     | ⏳ [01:11:30.208] [NO 2] [3. ENTER]   Escrevendo no recurso R por 339 ms (Req C2-S10)...
+observer  | [0m
+observer  | [1;32m🔒 [01:11:30.208] [BEGIN] No 2 ENTROU na Secao Critica | Pedido: Cliente 2 (#10) | Volta do Token: 362 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> [1;32m[ P2 USANDO R ][0m --> ( P3 ) --> ( P4 ) --> (P0)
+client1   | [01:11:30.260] [CLIENTE 1] Enviando REQUEST C1-S9 (9/10)
+node1     | [1;34m📩 [01:11:30.260] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#9) -> Aguardando Token...[0m
+[Kclient3 exited with code 0
+observer  | [1;33m🔓 [01:11:30.554] [END]   No 2 SAIU da Secao Critica   | Pedido: Cliente 2 (#10) | Passando Token -> No 3 | Ativos em R: 0[0m
+node2     | 🏁 [01:11:30.554] [NO 2] [4. EXIT]    Terminou escrita de 339 ms em R (Req C2-S10)
+node2     | [1;36m➡️  [01:11:30.554] [NO 2] [5. RELEASE] Liberou R (Req C2-S10) e repassou o Token adiante[0m
+node2     | ✅ [01:11:30.554] [NO 2] [6. COMMITTED] Confirmado acesso #10 para o Cliente 2
+client2   | [01:11:30.554] [CLIENTE 2] Recebeu COMMITTED para C2-S10
+client2   | [01:11:30.554] [CLIENTE 2] Finalizou todos os 10 acessos.
+observer  | [1;36mℹ️  [01:11:30.556] [STATUS] Gerenciador No 2 finalizou todos os pedidos do seu cliente (3/5 concluidos)
+node1     | [1;35m🔑 [01:11:30.587] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=366) para R | Esperou 326.86 ms na fila[0m
+node1     | ⏳ [01:11:30.587] [NO 1] [3. ENTER]   Escrevendo no recurso R por 605 ms (Req C1-S9)...
+observer  | [0m
+observer  | [1;32m🔒 [01:11:30.587] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#9) | Volta do Token: 366 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+[Kclient2 exited with code 0
+observer  | [1;33m🔓 [01:11:31.195] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#9) | Passando Token -> No 2 | Ativos em R: 0[0m
+node1     | 🏁 [01:11:31.195] [NO 1] [4. EXIT]    Terminou escrita de 605 ms em R (Req C1-S9)
+node1     | [1;36m➡️  [01:11:31.195] [NO 1] [5. RELEASE] Liberou R (Req C1-S9) e repassou o Token adiante[0m
+node1     | ✅ [01:11:31.196] [NO 1] [6. COMMITTED] Confirmado acesso #9 para o Cliente 1
+client1   | [01:11:31.196] [CLIENTE 1] Recebeu COMMITTED para C1-S9
+client4   | [01:11:32.540] [CLIENTE 4] Enviando REQUEST C4-S10 (10/10)
+node4     | [1;34m📩 [01:11:32.540] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#10) -> Aguardando Token...[0m
+node4     | [1;35m🔑 [01:11:32.573] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=484) para R | Esperou 32.28 ms na fila[0m
+node4     | ⏳ [01:11:32.573] [NO 4] [3. ENTER]   Escrevendo no recurso R por 574 ms (Req C4-S10)...
+observer  | 
+observer  | [1;32m🔒 [01:11:32.574] [BEGIN] No 4 ENTROU na Secao Critica | Pedido: Cliente 4 (#10) | Volta do Token: 484 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> ( P1 ) --> ( P2 ) --> ( P3 ) --> [1;32m[ P4 USANDO R ][0m --> (P0)
+observer  | [1;33m🔓 [01:11:33.150] [END]   No 4 SAIU da Secao Critica   | Pedido: Cliente 4 (#10) | Passando Token -> No 0 | Ativos em R: 0[0m
+node4     | 🏁 [01:11:33.151] [NO 4] [4. EXIT]    Terminou escrita de 574 ms em R (Req C4-S10)
+node4     | [1;36m➡️  [01:11:33.151] [NO 4] [5. RELEASE] Liberou R (Req C4-S10) e repassou o Token adiante[0m
+client4   | [01:11:33.151] [CLIENTE 4] Recebeu COMMITTED para C4-S10
+client4   | [01:11:33.151] [CLIENTE 4] Finalizou todos os 10 acessos.
+node4     | ✅ [01:11:33.151] [NO 4] [6. COMMITTED] Confirmado acesso #10 para o Cliente 4
+observer  | [1;36mℹ️  [01:11:33.153] [STATUS] Gerenciador No 4 finalizou todos os pedidos do seu cliente (4/5 concluidos)
+[Kclient4 exited with code 0
+node1     | [1;34m📩 [01:11:35.444] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#10) -> Aguardando Token...[0m
+client1   | [01:11:35.444] [CLIENTE 1] Enviando REQUEST C1-S10 (10/10)
+node1     | [1;35m🔑 [01:11:35.503] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=686) para R | Esperou 58.65 ms na fila[0m
+node1     | ⏳ [01:11:35.503] [NO 1] [3. ENTER]   Escrevendo no recurso R por 843 ms (Req C1-S10)...
+observer  | [0m
+observer  | [1;32m🔒 [01:11:35.504] [BEGIN] No 1 ENTROU na Secao Critica | Pedido: Cliente 1 (#10) | Volta do Token: 686 | Ativos em R: 1[0m
+observer  |    Anel: ( P0 ) --> [1;32m[ P1 USANDO R ][0m --> ( P2 ) --> ( P3 ) --> ( P4 ) --> (P0)
+node1     | 🏁 [01:11:36.353] [NO 1] [4. EXIT]    Terminou escrita de 843 ms em R (Req C1-S10)
+node1     | [1;36m➡️  [01:11:36.353] [NO 1] [5. RELEASE] Liberou R (Req C1-S10) e repassou o Token adiante[0m
+observer  | [1;33m🔓 [01:11:36.353] [END]   No 1 SAIU da Secao Critica   | Pedido: Cliente 1 (#10) | Passando Token -> No 2 | Ativos em R: 0[0m
+node1     | ✅ [01:11:36.354] [NO 1] [6. COMMITTED] Confirmado acesso #10 para o Cliente 1
+client1   | [01:11:36.354] [CLIENTE 1] Recebeu COMMITTED para C1-S10
+client1   | [01:11:36.354] [CLIENTE 1] Finalizou todos os 10 acessos.
+observer  | [1;36mℹ️  [01:11:36.355] [STATUS] Gerenciador No 1 finalizou todos os pedidos do seu cliente (5/5 concluidos)
+observer  | [0m
+observer  | [1;36m╔══════════════════════════════════════════════════════════════════════════════╗
+observer  | ║                 RELATÓRIO FINAL DO OBSERVADOR / VERIFICADOR                  ║
+observer  | ╠══════════════════════════════════════════════════════════════════════════════╣
+observer  | [0m║ Status da Exclusão Mútua : [1;32m✅ APROVADO (0 colisões / sobreposições em R)[0m     ║
+observer  | ║ Total de Acessos a 'R'   : 70                                                ║
+observer  | ║ Tempo Total de Execução  : 46.50  segundos                                   ║
+observer  | ║ Giros do Token (Rede)    : 431      (Média:   6.16 mensagens/acesso)         ║
+observer  | ║ Msgs de Instrumentação   : 140      (BEGIN + END enviados ao Observador)     ║
+observer  | [1;36m╠════════════╦══════════════════╦═══════════════════════╦══════════════════════╣
+observer  | ║ Nó / Par   ║ Acessos Feitos   ║ Espera Mediana (ms)   ║ Tokens Repassados    ║
+observer  | ╠════════════╬══════════════════╬═══════════════════════╬══════════════════════╣
+observer  | [0m║ P0 (Cli 0) ║       30 acessos ║         524.98 ms     ║            51 msgs   ║
+observer  | ║ P1 (Cli 1) ║       10 acessos ║         673.06 ms     ║           138 msgs   ║
+observer  | ║ P2 (Cli 2) ║       10 acessos ║         492.72 ms     ║            73 msgs   ║
+observer  | ║ P3 (Cli 3) ║       10 acessos ║         348.59 ms     ║            72 msgs   ║
+observer  | ║ P4 (Cli 4) ║       10 acessos ║         447.37 ms     ║            97 msgs   ║
+observer  | [1;36m╚════════════╩══════════════════╩═══════════════════════╩══════════════════════╝
+observer  | [0m
+[Kobserver exited with code 0
+[Kclient1 exited with code 0
+[Knode3 exited with code 0
+[Knode4 exited with code 0
+[Knode1 exited with code 0
+[Knode0 exited with code 0
+[Knode2 exited with code 0

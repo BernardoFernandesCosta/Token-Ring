@@ -1,0 +1,797 @@
+Attaching to client0, client1, client2, client3, client4, node0, node1, node2, node3, node4, observer
+observer  | [01:05:55.728] [OBSERVER] Iniciado na porta 7000. Aguardando eventos...
+node0     | [1;35m🚀 [01:05:57.881] [NO 0] Injetando o TOKEN UNICO inicial no anel (P0 -> P1 -> P2 -> P3 -> P4 -> P0)
+node0     | [0m[1;34m📩 [01:05:58.998] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#1) -> Aguardando Token...[0m
+client0   | [01:05:58.998] [CLIENTE 0] Conectado a node0 | Total de Pedidos=15 | Pausa=[0..0 ms] | Seed=1794099955
+client0   | [01:05:58.998] [CLIENTE 0] Enviando REQUEST C0-S1 (1/15)
+client3   | [01:05:59.004] [CLIENTE 3] Conectado a node3 | Total de Pedidos=15 | Pausa=[0..0 ms] | Seed=1794086457
+client3   | [01:05:59.004] [CLIENTE 3] Enviando REQUEST C3-S1 (1/15)
+node3     | [1;34m📩 [01:05:59.004] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#1) -> Aguardando Token...[0m
+node1     | [1;34m📩 [01:05:59.010] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#1) -> Aguardando Token...[0m
+client1   | [01:05:59.009] [CLIENTE 1] Conectado a node1 | Total de Pedidos=15 | Pausa=[0..0 ms] | Seed=1794102299
+client1   | [01:05:59.010] [CLIENTE 1] Enviando REQUEST C1-S1 (1/15)
+node0     | [1;35m🔑 [01:05:59.011] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=100) para R | Esperou 12.44 ms na fila[0m
+node0     | ⏳ [01:05:59.011] [NO 0] [3. ENTER]   Escrevendo no recurso R por 942 ms (Req C0-S1)...
+observer  | [01:05:59.012] [OBSERVER] [BEGIN] No=0 | Req=C0-S1 | TokenSeq=100 | Ativos=1
+client2   | [01:05:59.016] [CLIENTE 2] Conectado a node2 | Total de Pedidos=15 | Pausa=[0..0 ms] | Seed=1794111274
+client2   | [01:05:59.017] [CLIENTE 2] Enviando REQUEST C2-S1 (1/15)
+node2     | [1;34m📩 [01:05:59.017] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#1) -> Aguardando Token...[0m
+client4   | [01:05:59.021] [CLIENTE 4] Conectado a node4 | Total de Pedidos=15 | Pausa=[0..0 ms] | Seed=1794093384
+client4   | [01:05:59.021] [CLIENTE 4] Enviando REQUEST C4-S1 (1/15)
+node4     | [1;34m📩 [01:05:59.021] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#1) -> Aguardando Token...[0m
+node0     | 🏁 [01:05:59.959] [NO 0] [4. EXIT]    Terminou escrita de 942 ms em R (Req C0-S1)
+node0     | [1;36m➡️  [01:05:59.959] [NO 0] [5. RELEASE] Liberou R (Req C0-S1) e repassou o Token adiante[0m
+observer  | [01:05:59.959] [OBSERVER] [END]   No=0 | Req=C0-S1 | TokenSeq=100 | Ativos=0
+client0   | [01:05:59.960] [CLIENTE 0] Recebeu COMMITTED para C0-S1
+client0   | [01:05:59.960] [CLIENTE 0] Enviando REQUEST C0-S2 (2/15)
+node1     | [1;35m🔑 [01:05:59.960] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=101) para R | Esperou 950.56 ms na fila[0m
+node1     | ⏳ [01:05:59.960] [NO 1] [3. ENTER]   Escrevendo no recurso R por 711 ms (Req C1-S1)...
+node0     | ✅ [01:05:59.960] [NO 0] [6. COMMITTED] Confirmado acesso #1 para o Cliente 0
+node0     | [1;34m📩 [01:05:59.960] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#2) -> Aguardando Token...[0m
+observer  | [01:05:59.961] [OBSERVER] [BEGIN] No=1 | Req=C1-S1 | TokenSeq=101 | Ativos=1
+node1     | 🏁 [01:06:00.675] [NO 1] [4. EXIT]    Terminou escrita de 711 ms em R (Req C1-S1)
+node1     | [1;36m➡️  [01:06:00.675] [NO 1] [5. RELEASE] Liberou R (Req C1-S1) e repassou o Token adiante[0m
+observer  | [01:06:00.675] [OBSERVER] [END]   No=1 | Req=C1-S1 | TokenSeq=101 | Ativos=0
+node2     | [1;35m🔑 [01:06:00.676] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=102) para R | Esperou 1659.27 ms na fila[0m
+node2     | ⏳ [01:06:00.676] [NO 2] [3. ENTER]   Escrevendo no recurso R por 510 ms (Req C2-S1)...
+node1     | ✅ [01:06:00.676] [NO 1] [6. COMMITTED] Confirmado acesso #1 para o Cliente 1
+node1     | [1;34m📩 [01:06:00.677] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#2) -> Aguardando Token...[0m
+client1   | [01:06:00.676] [CLIENTE 1] Recebeu COMMITTED para C1-S1
+client1   | [01:06:00.676] [CLIENTE 1] Enviando REQUEST C1-S2 (2/15)
+observer  | [01:06:00.677] [OBSERVER] [BEGIN] No=2 | Req=C2-S1 | TokenSeq=102 | Ativos=1
+node2     | 🏁 [01:06:01.191] [NO 2] [4. EXIT]    Terminou escrita de 510 ms em R (Req C2-S1)
+node2     | [1;36m➡️  [01:06:01.191] [NO 2] [5. RELEASE] Liberou R (Req C2-S1) e repassou o Token adiante[0m
+observer  | [01:06:01.191] [OBSERVER] [END]   No=2 | Req=C2-S1 | TokenSeq=102 | Ativos=0
+node3     | [1;35m🔑 [01:06:01.192] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=103) para R | Esperou 2187.19 ms na fila[0m
+node3     | ⏳ [01:06:01.192] [NO 3] [3. ENTER]   Escrevendo no recurso R por 555 ms (Req C3-S1)...
+node2     | ✅ [01:06:01.192] [NO 2] [6. COMMITTED] Confirmado acesso #1 para o Cliente 2
+node2     | [1;34m📩 [01:06:01.192] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#2) -> Aguardando Token...[0m
+client2   | [01:06:01.192] [CLIENTE 2] Recebeu COMMITTED para C2-S1
+client2   | [01:06:01.192] [CLIENTE 2] Enviando REQUEST C2-S2 (2/15)
+observer  | [01:06:01.193] [OBSERVER] [BEGIN] No=3 | Req=C3-S1 | TokenSeq=103 | Ativos=1
+observer  | [01:06:01.755] [OBSERVER] [END]   No=3 | Req=C3-S1 | TokenSeq=103 | Ativos=0
+node3     | 🏁 [01:06:01.755] [NO 3] [4. EXIT]    Terminou escrita de 555 ms em R (Req C3-S1)
+node3     | [1;36m➡️  [01:06:01.755] [NO 3] [5. RELEASE] Liberou R (Req C3-S1) e repassou o Token adiante[0m
+node3     | ✅ [01:06:01.756] [NO 3] [6. COMMITTED] Confirmado acesso #1 para o Cliente 3
+node3     | [1;34m📩 [01:06:01.756] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#2) -> Aguardando Token...[0m
+client3   | [01:06:01.756] [CLIENTE 3] Recebeu COMMITTED para C3-S1
+client3   | [01:06:01.756] [CLIENTE 3] Enviando REQUEST C3-S2 (2/15)
+node4     | [1;35m🔑 [01:06:01.756] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=104) para R | Esperou 2735.17 ms na fila[0m
+node4     | ⏳ [01:06:01.756] [NO 4] [3. ENTER]   Escrevendo no recurso R por 263 ms (Req C4-S1)...
+observer  | [01:06:01.757] [OBSERVER] [BEGIN] No=4 | Req=C4-S1 | TokenSeq=104 | Ativos=1
+observer  | [01:06:02.027] [OBSERVER] [END]   No=4 | Req=C4-S1 | TokenSeq=104 | Ativos=0
+node4     | 🏁 [01:06:02.027] [NO 4] [4. EXIT]    Terminou escrita de 263 ms em R (Req C4-S1)
+node4     | [1;36m➡️  [01:06:02.028] [NO 4] [5. RELEASE] Liberou R (Req C4-S1) e repassou o Token adiante[0m
+client4   | [01:06:02.028] [CLIENTE 4] Recebeu COMMITTED para C4-S1
+client4   | [01:06:02.028] [CLIENTE 4] Enviando REQUEST C4-S2 (2/15)
+node4     | ✅ [01:06:02.028] [NO 4] [6. COMMITTED] Confirmado acesso #1 para o Cliente 4
+node4     | [1;34m📩 [01:06:02.028] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#2) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:06:02.028] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=105) para R | Esperou 2067.86 ms na fila[0m
+node0     | ⏳ [01:06:02.028] [NO 0] [3. ENTER]   Escrevendo no recurso R por 300 ms (Req C0-S2)...
+observer  | [01:06:02.029] [OBSERVER] [BEGIN] No=0 | Req=C0-S2 | TokenSeq=105 | Ativos=1
+node0     | 🏁 [01:06:02.337] [NO 0] [4. EXIT]    Terminou escrita de 300 ms em R (Req C0-S2)
+node0     | [1;36m➡️  [01:06:02.337] [NO 0] [5. RELEASE] Liberou R (Req C0-S2) e repassou o Token adiante[0m
+observer  | [01:06:02.336] [OBSERVER] [END]   No=0 | Req=C0-S2 | TokenSeq=105 | Ativos=0
+node0     | ✅ [01:06:02.337] [NO 0] [6. COMMITTED] Confirmado acesso #2 para o Cliente 0
+node0     | [1;34m📩 [01:06:02.338] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#3) -> Aguardando Token...[0m
+client0   | [01:06:02.337] [CLIENTE 0] Recebeu COMMITTED para C0-S2
+client0   | [01:06:02.337] [CLIENTE 0] Enviando REQUEST C0-S3 (3/15)
+node1     | [1;35m🔑 [01:06:02.338] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=106) para R | Esperou 1660.54 ms na fila[0m
+node1     | ⏳ [01:06:02.338] [NO 1] [3. ENTER]   Escrevendo no recurso R por 330 ms (Req C1-S2)...
+observer  | [01:06:02.339] [OBSERVER] [BEGIN] No=1 | Req=C1-S2 | TokenSeq=106 | Ativos=1
+observer  | [01:06:02.675] [OBSERVER] [END]   No=1 | Req=C1-S2 | TokenSeq=106 | Ativos=0
+node1     | 🏁 [01:06:02.675] [NO 1] [4. EXIT]    Terminou escrita de 330 ms em R (Req C1-S2)
+node1     | [1;36m➡️  [01:06:02.675] [NO 1] [5. RELEASE] Liberou R (Req C1-S2) e repassou o Token adiante[0m
+node1     | ✅ [01:06:02.676] [NO 1] [6. COMMITTED] Confirmado acesso #2 para o Cliente 1
+node1     | [1;34m📩 [01:06:02.676] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#3) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:06:02.676] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=107) para R | Esperou 1484.44 ms na fila[0m
+node2     | ⏳ [01:06:02.676] [NO 2] [3. ENTER]   Escrevendo no recurso R por 458 ms (Req C2-S2)...
+client1   | [01:06:02.676] [CLIENTE 1] Recebeu COMMITTED para C1-S2
+client1   | [01:06:02.676] [CLIENTE 1] Enviando REQUEST C1-S3 (3/15)
+observer  | [01:06:02.677] [OBSERVER] [BEGIN] No=2 | Req=C2-S2 | TokenSeq=107 | Ativos=1
+observer  | [01:06:03.138] [OBSERVER] [END]   No=2 | Req=C2-S2 | TokenSeq=107 | Ativos=0
+node2     | 🏁 [01:06:03.138] [NO 2] [4. EXIT]    Terminou escrita de 458 ms em R (Req C2-S2)
+node2     | [1;36m➡️  [01:06:03.138] [NO 2] [5. RELEASE] Liberou R (Req C2-S2) e repassou o Token adiante[0m
+node2     | ✅ [01:06:03.139] [NO 2] [6. COMMITTED] Confirmado acesso #2 para o Cliente 2
+node2     | [1;34m📩 [01:06:03.139] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#3) -> Aguardando Token...[0m
+client2   | [01:06:03.139] [CLIENTE 2] Recebeu COMMITTED para C2-S2
+client2   | [01:06:03.139] [CLIENTE 2] Enviando REQUEST C2-S3 (3/15)
+node3     | [1;35m🔑 [01:06:03.139] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=108) para R | Esperou 1382.53 ms na fila[0m
+node3     | ⏳ [01:06:03.139] [NO 3] [3. ENTER]   Escrevendo no recurso R por 975 ms (Req C3-S2)...
+observer  | [01:06:03.140] [OBSERVER] [BEGIN] No=3 | Req=C3-S2 | TokenSeq=108 | Ativos=1
+observer  | [01:06:04.118] [OBSERVER] [END]   No=3 | Req=C3-S2 | TokenSeq=108 | Ativos=0
+node3     | 🏁 [01:06:04.118] [NO 3] [4. EXIT]    Terminou escrita de 975 ms em R (Req C3-S2)
+node3     | [1;36m➡️  [01:06:04.118] [NO 3] [5. RELEASE] Liberou R (Req C3-S2) e repassou o Token adiante[0m
+client3   | [01:06:04.119] [CLIENTE 3] Recebeu COMMITTED para C3-S2
+client3   | [01:06:04.119] [CLIENTE 3] Enviando REQUEST C3-S3 (3/15)
+node4     | [1;35m🔑 [01:06:04.119] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=109) para R | Esperou 2090.67 ms na fila[0m
+node4     | ⏳ [01:06:04.119] [NO 4] [3. ENTER]   Escrevendo no recurso R por 407 ms (Req C4-S2)...
+node3     | ✅ [01:06:04.119] [NO 3] [6. COMMITTED] Confirmado acesso #2 para o Cliente 3
+node3     | [1;34m📩 [01:06:04.119] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#3) -> Aguardando Token...[0m
+observer  | [01:06:04.120] [OBSERVER] [BEGIN] No=4 | Req=C4-S2 | TokenSeq=109 | Ativos=1
+node4     | 🏁 [01:06:04.534] [NO 4] [4. EXIT]    Terminou escrita de 407 ms em R (Req C4-S2)
+node4     | [1;36m➡️  [01:06:04.535] [NO 4] [5. RELEASE] Liberou R (Req C4-S2) e repassou o Token adiante[0m
+observer  | [01:06:04.534] [OBSERVER] [END]   No=4 | Req=C4-S2 | TokenSeq=109 | Ativos=0
+client4   | [01:06:04.536] [CLIENTE 4] Recebeu COMMITTED para C4-S2
+node4     | ✅ [01:06:04.536] [NO 4] [6. COMMITTED] Confirmado acesso #2 para o Cliente 4
+client4   | [01:06:04.536] [CLIENTE 4] Enviando REQUEST C4-S3 (3/15)
+node4     | [1;34m📩 [01:06:04.536] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#3) -> Aguardando Token...[0m
+observer  | [01:06:04.537] [OBSERVER] [BEGIN] No=0 | Req=C0-S3 | TokenSeq=110 | Ativos=1
+node0     | [1;35m🔑 [01:06:04.536] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=110) para R | Esperou 2198.02 ms na fila[0m
+node0     | ⏳ [01:06:04.536] [NO 0] [3. ENTER]   Escrevendo no recurso R por 316 ms (Req C0-S3)...
+node0     | 🏁 [01:06:04.859] [NO 0] [4. EXIT]    Terminou escrita de 316 ms em R (Req C0-S3)
+node0     | [1;36m➡️  [01:06:04.859] [NO 0] [5. RELEASE] Liberou R (Req C0-S3) e repassou o Token adiante[0m
+observer  | [01:06:04.859] [OBSERVER] [END]   No=0 | Req=C0-S3 | TokenSeq=110 | Ativos=0
+node0     | ✅ [01:06:04.860] [NO 0] [6. COMMITTED] Confirmado acesso #3 para o Cliente 0
+node0     | [1;34m📩 [01:06:04.860] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#4) -> Aguardando Token...[0m
+client0   | [01:06:04.860] [CLIENTE 0] Recebeu COMMITTED para C0-S3
+client0   | [01:06:04.860] [CLIENTE 0] Enviando REQUEST C0-S4 (4/15)
+node1     | [1;35m🔑 [01:06:04.860] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=111) para R | Esperou 2183.40 ms na fila[0m
+node1     | ⏳ [01:06:04.860] [NO 1] [3. ENTER]   Escrevendo no recurso R por 247 ms (Req C1-S3)...
+observer  | [01:06:04.861] [OBSERVER] [BEGIN] No=1 | Req=C1-S3 | TokenSeq=111 | Ativos=1
+node1     | 🏁 [01:06:05.112] [NO 1] [4. EXIT]    Terminou escrita de 247 ms em R (Req C1-S3)
+node1     | [1;36m➡️  [01:06:05.112] [NO 1] [5. RELEASE] Liberou R (Req C1-S3) e repassou o Token adiante[0m
+observer  | [01:06:05.112] [OBSERVER] [END]   No=1 | Req=C1-S3 | TokenSeq=111 | Ativos=0
+node1     | ✅ [01:06:05.113] [NO 1] [6. COMMITTED] Confirmado acesso #3 para o Cliente 1
+client1   | [01:06:05.113] [CLIENTE 1] Recebeu COMMITTED para C1-S3
+client1   | [01:06:05.113] [CLIENTE 1] Enviando REQUEST C1-S4 (4/15)
+node1     | [1;34m📩 [01:06:05.113] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#4) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:06:05.113] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=112) para R | Esperou 1973.97 ms na fila[0m
+node2     | ⏳ [01:06:05.113] [NO 2] [3. ENTER]   Escrevendo no recurso R por 495 ms (Req C2-S3)...
+observer  | [01:06:05.114] [OBSERVER] [BEGIN] No=2 | Req=C2-S3 | TokenSeq=112 | Ativos=1
+node2     | 🏁 [01:06:05.613] [NO 2] [4. EXIT]    Terminou escrita de 495 ms em R (Req C2-S3)
+observer  | [01:06:05.612] [OBSERVER] [END]   No=2 | Req=C2-S3 | TokenSeq=112 | Ativos=0
+node2     | [1;36m➡️  [01:06:05.613] [NO 2] [5. RELEASE] Liberou R (Req C2-S3) e repassou o Token adiante[0m
+client2   | [01:06:05.614] [CLIENTE 2] Recebeu COMMITTED para C2-S3
+client2   | [01:06:05.614] [CLIENTE 2] Enviando REQUEST C2-S4 (4/15)
+node3     | [1;35m🔑 [01:06:05.614] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=113) para R | Esperou 1494.46 ms na fila[0m
+node3     | ⏳ [01:06:05.614] [NO 3] [3. ENTER]   Escrevendo no recurso R por 358 ms (Req C3-S3)...
+node2     | ✅ [01:06:05.614] [NO 2] [6. COMMITTED] Confirmado acesso #3 para o Cliente 2
+node2     | [1;34m📩 [01:06:05.614] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#4) -> Aguardando Token...[0m
+observer  | [01:06:05.615] [OBSERVER] [BEGIN] No=3 | Req=C3-S3 | TokenSeq=113 | Ativos=1
+observer  | [01:06:05.978] [OBSERVER] [END]   No=3 | Req=C3-S3 | TokenSeq=113 | Ativos=0
+node3     | 🏁 [01:06:05.979] [NO 3] [4. EXIT]    Terminou escrita de 358 ms em R (Req C3-S3)
+node3     | [1;36m➡️  [01:06:05.979] [NO 3] [5. RELEASE] Liberou R (Req C3-S3) e repassou o Token adiante[0m
+node3     | ✅ [01:06:05.979] [NO 3] [6. COMMITTED] Confirmado acesso #3 para o Cliente 3
+node3     | [1;34m📩 [01:06:05.979] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#4) -> Aguardando Token...[0m
+node4     | [1;35m🔑 [01:06:05.980] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=114) para R | Esperou 1443.47 ms na fila[0m
+node4     | ⏳ [01:06:05.980] [NO 4] [3. ENTER]   Escrevendo no recurso R por 695 ms (Req C4-S3)...
+client3   | [01:06:05.979] [CLIENTE 3] Recebeu COMMITTED para C3-S3
+client3   | [01:06:05.979] [CLIENTE 3] Enviando REQUEST C3-S4 (4/15)
+observer  | [01:06:05.982] [OBSERVER] [BEGIN] No=4 | Req=C4-S3 | TokenSeq=114 | Ativos=1
+observer  | [01:06:06.685] [OBSERVER] [END]   No=4 | Req=C4-S3 | TokenSeq=114 | Ativos=0
+node4     | 🏁 [01:06:06.685] [NO 4] [4. EXIT]    Terminou escrita de 695 ms em R (Req C4-S3)
+node4     | [1;36m➡️  [01:06:06.685] [NO 4] [5. RELEASE] Liberou R (Req C4-S3) e repassou o Token adiante[0m
+node0     | [1;35m🔑 [01:06:06.686] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=115) para R | Esperou 1824.57 ms na fila[0m
+node0     | ⏳ [01:06:06.686] [NO 0] [3. ENTER]   Escrevendo no recurso R por 477 ms (Req C0-S4)...
+client4   | [01:06:06.686] [CLIENTE 4] Recebeu COMMITTED para C4-S3
+client4   | [01:06:06.686] [CLIENTE 4] Enviando REQUEST C4-S4 (4/15)
+node4     | ✅ [01:06:06.686] [NO 4] [6. COMMITTED] Confirmado acesso #3 para o Cliente 4
+node4     | [1;34m📩 [01:06:06.686] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#4) -> Aguardando Token...[0m
+observer  | [01:06:06.687] [OBSERVER] [BEGIN] No=0 | Req=C0-S4 | TokenSeq=115 | Ativos=1
+node0     | 🏁 [01:06:07.171] [NO 0] [4. EXIT]    Terminou escrita de 477 ms em R (Req C0-S4)
+node0     | [1;36m➡️  [01:06:07.171] [NO 0] [5. RELEASE] Liberou R (Req C0-S4) e repassou o Token adiante[0m
+observer  | [01:06:07.171] [OBSERVER] [END]   No=0 | Req=C0-S4 | TokenSeq=115 | Ativos=0
+client0   | [01:06:07.172] [CLIENTE 0] Recebeu COMMITTED para C0-S4
+client0   | [01:06:07.172] [CLIENTE 0] Enviando REQUEST C0-S5 (5/15)
+node0     | ✅ [01:06:07.171] [NO 0] [6. COMMITTED] Confirmado acesso #4 para o Cliente 0
+node0     | [1;34m📩 [01:06:07.172] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#5) -> Aguardando Token...[0m
+node1     | [1;35m🔑 [01:06:07.172] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=116) para R | Esperou 2057.26 ms na fila[0m
+node1     | ⏳ [01:06:07.172] [NO 1] [3. ENTER]   Escrevendo no recurso R por 755 ms (Req C1-S4)...
+observer  | [01:06:07.172] [OBSERVER] [BEGIN] No=1 | Req=C1-S4 | TokenSeq=116 | Ativos=1
+observer  | [01:06:07.935] [OBSERVER] [END]   No=1 | Req=C1-S4 | TokenSeq=116 | Ativos=0
+node1     | 🏁 [01:06:07.935] [NO 1] [4. EXIT]    Terminou escrita de 755 ms em R (Req C1-S4)
+node1     | [1;36m➡️  [01:06:07.935] [NO 1] [5. RELEASE] Liberou R (Req C1-S4) e repassou o Token adiante[0m
+client1   | [01:06:07.935] [CLIENTE 1] Recebeu COMMITTED para C1-S4
+client1   | [01:06:07.936] [CLIENTE 1] Enviando REQUEST C1-S5 (5/15)
+node2     | [1;35m🔑 [01:06:07.936] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=117) para R | Esperou 2320.20 ms na fila[0m
+node2     | ⏳ [01:06:07.936] [NO 2] [3. ENTER]   Escrevendo no recurso R por 344 ms (Req C2-S4)...
+node1     | ✅ [01:06:07.935] [NO 1] [6. COMMITTED] Confirmado acesso #4 para o Cliente 1
+node1     | [1;34m📩 [01:06:07.936] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#5) -> Aguardando Token...[0m
+observer  | [01:06:07.936] [OBSERVER] [BEGIN] No=2 | Req=C2-S4 | TokenSeq=117 | Ativos=1
+node2     | 🏁 [01:06:08.286] [NO 2] [4. EXIT]    Terminou escrita de 344 ms em R (Req C2-S4)
+node2     | [1;36m➡️  [01:06:08.286] [NO 2] [5. RELEASE] Liberou R (Req C2-S4) e repassou o Token adiante[0m
+observer  | [01:06:08.286] [OBSERVER] [END]   No=2 | Req=C2-S4 | TokenSeq=117 | Ativos=0
+node3     | [1;35m🔑 [01:06:08.287] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=118) para R | Esperou 2306.19 ms na fila[0m
+node3     | ⏳ [01:06:08.287] [NO 3] [3. ENTER]   Escrevendo no recurso R por 849 ms (Req C3-S4)...
+client2   | [01:06:08.287] [CLIENTE 2] Recebeu COMMITTED para C2-S4
+client2   | [01:06:08.287] [CLIENTE 2] Enviando REQUEST C2-S5 (5/15)
+node2     | ✅ [01:06:08.287] [NO 2] [6. COMMITTED] Confirmado acesso #4 para o Cliente 2
+node2     | [1;34m📩 [01:06:08.287] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#5) -> Aguardando Token...[0m
+observer  | [01:06:08.288] [OBSERVER] [BEGIN] No=3 | Req=C3-S4 | TokenSeq=118 | Ativos=1
+observer  | [01:06:09.141] [OBSERVER] [END]   No=3 | Req=C3-S4 | TokenSeq=118 | Ativos=0
+node3     | 🏁 [01:06:09.141] [NO 3] [4. EXIT]    Terminou escrita de 849 ms em R (Req C3-S4)
+node3     | [1;36m➡️  [01:06:09.141] [NO 3] [5. RELEASE] Liberou R (Req C3-S4) e repassou o Token adiante[0m
+client3   | [01:06:09.142] [CLIENTE 3] Recebeu COMMITTED para C3-S4
+client3   | [01:06:09.142] [CLIENTE 3] Enviando REQUEST C3-S5 (5/15)
+node3     | ✅ [01:06:09.142] [NO 3] [6. COMMITTED] Confirmado acesso #4 para o Cliente 3
+node3     | [1;34m📩 [01:06:09.142] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#5) -> Aguardando Token...[0m
+node4     | [1;35m🔑 [01:06:09.142] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=119) para R | Esperou 2456.01 ms na fila[0m
+node4     | ⏳ [01:06:09.142] [NO 4] [3. ENTER]   Escrevendo no recurso R por 253 ms (Req C4-S4)...
+observer  | [01:06:09.143] [OBSERVER] [BEGIN] No=4 | Req=C4-S4 | TokenSeq=119 | Ativos=1
+node4     | 🏁 [01:06:09.403] [NO 4] [4. EXIT]    Terminou escrita de 253 ms em R (Req C4-S4)
+node4     | [1;36m➡️  [01:06:09.403] [NO 4] [5. RELEASE] Liberou R (Req C4-S4) e repassou o Token adiante[0m
+observer  | [01:06:09.403] [OBSERVER] [END]   No=4 | Req=C4-S4 | TokenSeq=119 | Ativos=0
+node4     | ✅ [01:06:09.404] [NO 4] [6. COMMITTED] Confirmado acesso #4 para o Cliente 4
+node4     | [1;34m📩 [01:06:09.405] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#5) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:06:09.404] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=120) para R | Esperou 2232.34 ms na fila[0m
+node0     | ⏳ [01:06:09.404] [NO 0] [3. ENTER]   Escrevendo no recurso R por 300 ms (Req C0-S5)...
+client4   | [01:06:09.404] [CLIENTE 4] Recebeu COMMITTED para C4-S4
+client4   | [01:06:09.404] [CLIENTE 4] Enviando REQUEST C4-S5 (5/15)
+observer  | [01:06:09.405] [OBSERVER] [BEGIN] No=0 | Req=C0-S5 | TokenSeq=120 | Ativos=1
+node0     | 🏁 [01:06:09.711] [NO 0] [4. EXIT]    Terminou escrita de 300 ms em R (Req C0-S5)
+node0     | [1;36m➡️  [01:06:09.711] [NO 0] [5. RELEASE] Liberou R (Req C0-S5) e repassou o Token adiante[0m
+observer  | [01:06:09.711] [OBSERVER] [END]   No=0 | Req=C0-S5 | TokenSeq=120 | Ativos=0
+client0   | [01:06:09.712] [CLIENTE 0] Recebeu COMMITTED para C0-S5
+client0   | [01:06:09.712] [CLIENTE 0] Enviando REQUEST C0-S6 (6/15)
+node1     | [1;35m🔑 [01:06:09.712] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=121) para R | Esperou 1776.30 ms na fila[0m
+node0     | ✅ [01:06:09.712] [NO 0] [6. COMMITTED] Confirmado acesso #5 para o Cliente 0
+node0     | [1;34m📩 [01:06:09.712] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#6) -> Aguardando Token...[0m
+node1     | ⏳ [01:06:09.712] [NO 1] [3. ENTER]   Escrevendo no recurso R por 820 ms (Req C1-S5)...
+observer  | [01:06:09.713] [OBSERVER] [BEGIN] No=1 | Req=C1-S5 | TokenSeq=121 | Ativos=1
+node1     | 🏁 [01:06:10.540] [NO 1] [4. EXIT]    Terminou escrita de 820 ms em R (Req C1-S5)
+node1     | [1;36m➡️  [01:06:10.540] [NO 1] [5. RELEASE] Liberou R (Req C1-S5) e repassou o Token adiante[0m
+observer  | [01:06:10.540] [OBSERVER] [END]   No=1 | Req=C1-S5 | TokenSeq=121 | Ativos=0
+client1   | [01:06:10.541] [CLIENTE 1] Recebeu COMMITTED para C1-S5
+client1   | [01:06:10.541] [CLIENTE 1] Enviando REQUEST C1-S6 (6/15)
+node2     | [1;35m🔑 [01:06:10.541] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=122) para R | Esperou 2253.84 ms na fila[0m
+node2     | ⏳ [01:06:10.541] [NO 2] [3. ENTER]   Escrevendo no recurso R por 838 ms (Req C2-S5)...
+node1     | ✅ [01:06:10.541] [NO 1] [6. COMMITTED] Confirmado acesso #5 para o Cliente 1
+node1     | [1;34m📩 [01:06:10.541] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#6) -> Aguardando Token...[0m
+observer  | [01:06:10.542] [OBSERVER] [BEGIN] No=2 | Req=C2-S5 | TokenSeq=122 | Ativos=1
+node2     | 🏁 [01:06:11.387] [NO 2] [4. EXIT]    Terminou escrita de 838 ms em R (Req C2-S5)
+node2     | [1;36m➡️  [01:06:11.387] [NO 2] [5. RELEASE] Liberou R (Req C2-S5) e repassou o Token adiante[0m
+observer  | [01:06:11.387] [OBSERVER] [END]   No=2 | Req=C2-S5 | TokenSeq=122 | Ativos=0
+node3     | [1;35m🔑 [01:06:11.388] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=123) para R | Esperou 2246.17 ms na fila[0m
+node3     | ⏳ [01:06:11.389] [NO 3] [3. ENTER]   Escrevendo no recurso R por 834 ms (Req C3-S5)...
+client2   | [01:06:11.388] [CLIENTE 2] Recebeu COMMITTED para C2-S5
+client2   | [01:06:11.388] [CLIENTE 2] Enviando REQUEST C2-S6 (6/15)
+node2     | ✅ [01:06:11.388] [NO 2] [6. COMMITTED] Confirmado acesso #5 para o Cliente 2
+node2     | [1;34m📩 [01:06:11.389] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#6) -> Aguardando Token...[0m
+observer  | [01:06:11.389] [OBSERVER] [BEGIN] No=3 | Req=C3-S5 | TokenSeq=123 | Ativos=1
+node3     | 🏁 [01:06:12.230] [NO 3] [4. EXIT]    Terminou escrita de 834 ms em R (Req C3-S5)
+node3     | [1;36m➡️  [01:06:12.230] [NO 3] [5. RELEASE] Liberou R (Req C3-S5) e repassou o Token adiante[0m
+observer  | [01:06:12.230] [OBSERVER] [END]   No=3 | Req=C3-S5 | TokenSeq=123 | Ativos=0
+node3     | ✅ [01:06:12.231] [NO 3] [6. COMMITTED] Confirmado acesso #5 para o Cliente 3
+node4     | [1;35m🔑 [01:06:12.231] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=124) para R | Esperou 2826.31 ms na fila[0m
+node4     | ⏳ [01:06:12.231] [NO 4] [3. ENTER]   Escrevendo no recurso R por 425 ms (Req C4-S5)...
+client3   | [01:06:12.231] [CLIENTE 3] Recebeu COMMITTED para C3-S5
+client3   | [01:06:12.231] [CLIENTE 3] Enviando REQUEST C3-S6 (6/15)
+observer  | [01:06:12.232] [OBSERVER] [BEGIN] No=4 | Req=C4-S5 | TokenSeq=124 | Ativos=1
+node3     | [1;34m📩 [01:06:12.231] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#6) -> Aguardando Token...[0m
+node4     | 🏁 [01:06:12.665] [NO 4] [4. EXIT]    Terminou escrita de 425 ms em R (Req C4-S5)
+node4     | [1;36m➡️  [01:06:12.665] [NO 4] [5. RELEASE] Liberou R (Req C4-S5) e repassou o Token adiante[0m
+observer  | [01:06:12.664] [OBSERVER] [END]   No=4 | Req=C4-S5 | TokenSeq=124 | Ativos=0
+node4     | ✅ [01:06:12.665] [NO 4] [6. COMMITTED] Confirmado acesso #5 para o Cliente 4
+node0     | [1;35m🔑 [01:06:12.666] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=125) para R | Esperou 2953.38 ms na fila[0m
+node0     | ⏳ [01:06:12.666] [NO 0] [3. ENTER]   Escrevendo no recurso R por 922 ms (Req C0-S6)...
+node4     | [1;34m📩 [01:06:12.666] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#6) -> Aguardando Token...[0m
+client4   | [01:06:12.665] [CLIENTE 4] Recebeu COMMITTED para C4-S5
+client4   | [01:06:12.666] [CLIENTE 4] Enviando REQUEST C4-S6 (6/15)
+observer  | [01:06:12.666] [OBSERVER] [BEGIN] No=0 | Req=C0-S6 | TokenSeq=125 | Ativos=1
+node0     | 🏁 [01:06:13.594] [NO 0] [4. EXIT]    Terminou escrita de 922 ms em R (Req C0-S6)
+node0     | [1;36m➡️  [01:06:13.594] [NO 0] [5. RELEASE] Liberou R (Req C0-S6) e repassou o Token adiante[0m
+observer  | [01:06:13.593] [OBSERVER] [END]   No=0 | Req=C0-S6 | TokenSeq=125 | Ativos=0
+node0     | ✅ [01:06:13.594] [NO 0] [6. COMMITTED] Confirmado acesso #6 para o Cliente 0
+client0   | [01:06:13.594] [CLIENTE 0] Recebeu COMMITTED para C0-S6
+client0   | [01:06:13.594] [CLIENTE 0] Enviando REQUEST C0-S7 (7/15)
+node1     | [1;35m🔑 [01:06:13.595] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=126) para R | Esperou 3053.39 ms na fila[0m
+node1     | ⏳ [01:06:13.595] [NO 1] [3. ENTER]   Escrevendo no recurso R por 224 ms (Req C1-S6)...
+node0     | [1;34m📩 [01:06:13.594] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#7) -> Aguardando Token...[0m
+observer  | [01:06:13.596] [OBSERVER] [BEGIN] No=1 | Req=C1-S6 | TokenSeq=126 | Ativos=1
+node1     | 🏁 [01:06:13.826] [NO 1] [4. EXIT]    Terminou escrita de 224 ms em R (Req C1-S6)
+node1     | [1;36m➡️  [01:06:13.826] [NO 1] [5. RELEASE] Liberou R (Req C1-S6) e repassou o Token adiante[0m
+observer  | [01:06:13.826] [OBSERVER] [END]   No=1 | Req=C1-S6 | TokenSeq=126 | Ativos=0
+node2     | [1;35m🔑 [01:06:13.827] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=127) para R | Esperou 2438.39 ms na fila[0m
+node2     | ⏳ [01:06:13.827] [NO 2] [3. ENTER]   Escrevendo no recurso R por 905 ms (Req C2-S6)...
+client1   | [01:06:13.827] [CLIENTE 1] Recebeu COMMITTED para C1-S6
+client1   | [01:06:13.827] [CLIENTE 1] Enviando REQUEST C1-S7 (7/15)
+node1     | ✅ [01:06:13.827] [NO 1] [6. COMMITTED] Confirmado acesso #6 para o Cliente 1
+observer  | [01:06:13.828] [OBSERVER] [BEGIN] No=2 | Req=C2-S6 | TokenSeq=127 | Ativos=1
+node1     | [1;34m📩 [01:06:13.827] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#7) -> Aguardando Token...[0m
+observer  | [01:06:14.735] [OBSERVER] [END]   No=2 | Req=C2-S6 | TokenSeq=127 | Ativos=0
+node2     | 🏁 [01:06:14.735] [NO 2] [4. EXIT]    Terminou escrita de 905 ms em R (Req C2-S6)
+node2     | [1;36m➡️  [01:06:14.735] [NO 2] [5. RELEASE] Liberou R (Req C2-S6) e repassou o Token adiante[0m
+node2     | ✅ [01:06:14.735] [NO 2] [6. COMMITTED] Confirmado acesso #6 para o Cliente 2
+node2     | [1;34m📩 [01:06:14.736] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#7) -> Aguardando Token...[0m
+client2   | [01:06:14.736] [CLIENTE 2] Recebeu COMMITTED para C2-S6
+client2   | [01:06:14.736] [CLIENTE 2] Enviando REQUEST C2-S7 (7/15)
+node3     | [1;35m🔑 [01:06:14.736] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=128) para R | Esperou 2504.35 ms na fila[0m
+node3     | ⏳ [01:06:14.736] [NO 3] [3. ENTER]   Escrevendo no recurso R por 949 ms (Req C3-S6)...
+observer  | [01:06:14.736] [OBSERVER] [BEGIN] No=3 | Req=C3-S6 | TokenSeq=128 | Ativos=1
+observer  | [01:06:15.689] [OBSERVER] [END]   No=3 | Req=C3-S6 | TokenSeq=128 | Ativos=0
+node3     | 🏁 [01:06:15.690] [NO 3] [4. EXIT]    Terminou escrita de 949 ms em R (Req C3-S6)
+node3     | [1;36m➡️  [01:06:15.690] [NO 3] [5. RELEASE] Liberou R (Req C3-S6) e repassou o Token adiante[0m
+node3     | ✅ [01:06:15.690] [NO 3] [6. COMMITTED] Confirmado acesso #6 para o Cliente 3
+client3   | [01:06:15.690] [CLIENTE 3] Recebeu COMMITTED para C3-S6
+client3   | [01:06:15.690] [CLIENTE 3] Enviando REQUEST C3-S7 (7/15)
+node4     | [1;35m🔑 [01:06:15.690] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=129) para R | Esperou 3024.61 ms na fila[0m
+node4     | ⏳ [01:06:15.690] [NO 4] [3. ENTER]   Escrevendo no recurso R por 875 ms (Req C4-S6)...
+node3     | [1;34m📩 [01:06:15.691] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#7) -> Aguardando Token...[0m
+observer  | [01:06:15.691] [OBSERVER] [BEGIN] No=4 | Req=C4-S6 | TokenSeq=129 | Ativos=1
+node4     | 🏁 [01:06:16.568] [NO 4] [4. EXIT]    Terminou escrita de 875 ms em R (Req C4-S6)
+node4     | [1;36m➡️  [01:06:16.568] [NO 4] [5. RELEASE] Liberou R (Req C4-S6) e repassou o Token adiante[0m
+observer  | [01:06:16.568] [OBSERVER] [END]   No=4 | Req=C4-S6 | TokenSeq=129 | Ativos=0
+node4     | ✅ [01:06:16.569] [NO 4] [6. COMMITTED] Confirmado acesso #6 para o Cliente 4
+node4     | [1;34m📩 [01:06:16.569] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#7) -> Aguardando Token...[0m
+client4   | [01:06:16.569] [CLIENTE 4] Recebeu COMMITTED para C4-S6
+client4   | [01:06:16.569] [CLIENTE 4] Enviando REQUEST C4-S7 (7/15)
+node0     | [1;35m🔑 [01:06:16.569] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=130) para R | Esperou 2974.54 ms na fila[0m
+node0     | ⏳ [01:06:16.569] [NO 0] [3. ENTER]   Escrevendo no recurso R por 320 ms (Req C0-S7)...
+observer  | [01:06:16.570] [OBSERVER] [BEGIN] No=0 | Req=C0-S7 | TokenSeq=130 | Ativos=1
+node0     | 🏁 [01:06:16.893] [NO 0] [4. EXIT]    Terminou escrita de 320 ms em R (Req C0-S7)
+node1     | [1;35m🔑 [01:06:16.894] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=131) para R | Esperou 3066.73 ms na fila[0m
+node1     | ⏳ [01:06:16.894] [NO 1] [3. ENTER]   Escrevendo no recurso R por 810 ms (Req C1-S7)...
+client0   | [01:06:16.894] [CLIENTE 0] Recebeu COMMITTED para C0-S7
+client0   | [01:06:16.894] [CLIENTE 0] Enviando REQUEST C0-S8 (8/15)
+node0     | [1;36m➡️  [01:06:16.894] [NO 0] [5. RELEASE] Liberou R (Req C0-S7) e repassou o Token adiante[0m
+node0     | ✅ [01:06:16.894] [NO 0] [6. COMMITTED] Confirmado acesso #7 para o Cliente 0
+node0     | [1;34m📩 [01:06:16.894] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#8) -> Aguardando Token...[0m
+observer  | [01:06:16.893] [OBSERVER] [END]   No=0 | Req=C0-S7 | TokenSeq=130 | Ativos=0
+observer  | [01:06:16.895] [OBSERVER] [BEGIN] No=1 | Req=C1-S7 | TokenSeq=131 | Ativos=1
+node1     | 🏁 [01:06:17.711] [NO 1] [4. EXIT]    Terminou escrita de 810 ms em R (Req C1-S7)
+node1     | [1;36m➡️  [01:06:17.711] [NO 1] [5. RELEASE] Liberou R (Req C1-S7) e repassou o Token adiante[0m
+observer  | [01:06:17.710] [OBSERVER] [END]   No=1 | Req=C1-S7 | TokenSeq=131 | Ativos=0
+node2     | [1;35m🔑 [01:06:17.712] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=132) para R | Esperou 2976.26 ms na fila[0m
+node2     | ⏳ [01:06:17.712] [NO 2] [3. ENTER]   Escrevendo no recurso R por 773 ms (Req C2-S7)...
+node1     | ✅ [01:06:17.712] [NO 1] [6. COMMITTED] Confirmado acesso #7 para o Cliente 1
+node1     | [1;34m📩 [01:06:17.712] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#8) -> Aguardando Token...[0m
+client1   | [01:06:17.712] [CLIENTE 1] Recebeu COMMITTED para C1-S7
+observer  | [01:06:17.713] [OBSERVER] [BEGIN] No=2 | Req=C2-S7 | TokenSeq=132 | Ativos=1
+client1   | [01:06:17.712] [CLIENTE 1] Enviando REQUEST C1-S8 (8/15)
+observer  | [01:06:18.493] [OBSERVER] [END]   No=2 | Req=C2-S7 | TokenSeq=132 | Ativos=0
+node2     | 🏁 [01:06:18.493] [NO 2] [4. EXIT]    Terminou escrita de 773 ms em R (Req C2-S7)
+node2     | [1;36m➡️  [01:06:18.493] [NO 2] [5. RELEASE] Liberou R (Req C2-S7) e repassou o Token adiante[0m
+node2     | ✅ [01:06:18.494] [NO 2] [6. COMMITTED] Confirmado acesso #7 para o Cliente 2
+node3     | [1;35m🔑 [01:06:18.494] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=133) para R | Esperou 2803.81 ms na fila[0m
+node3     | ⏳ [01:06:18.495] [NO 3] [3. ENTER]   Escrevendo no recurso R por 319 ms (Req C3-S7)...
+node2     | [1;34m📩 [01:06:18.495] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#8) -> Aguardando Token...[0m
+client2   | [01:06:18.494] [CLIENTE 2] Recebeu COMMITTED para C2-S7
+client2   | [01:06:18.494] [CLIENTE 2] Enviando REQUEST C2-S8 (8/15)
+observer  | [01:06:18.496] [OBSERVER] [BEGIN] No=3 | Req=C3-S7 | TokenSeq=133 | Ativos=1
+node3     | 🏁 [01:06:18.822] [NO 3] [4. EXIT]    Terminou escrita de 319 ms em R (Req C3-S7)
+node3     | [1;36m➡️  [01:06:18.822] [NO 3] [5. RELEASE] Liberou R (Req C3-S7) e repassou o Token adiante[0m
+observer  | [01:06:18.822] [OBSERVER] [END]   No=3 | Req=C3-S7 | TokenSeq=133 | Ativos=0
+client3   | [01:06:18.823] [CLIENTE 3] Recebeu COMMITTED para C3-S7
+client3   | [01:06:18.823] [CLIENTE 3] Enviando REQUEST C3-S8 (8/15)
+node4     | [1;35m🔑 [01:06:18.824] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=134) para R | Esperou 2254.50 ms na fila[0m
+node4     | ⏳ [01:06:18.824] [NO 4] [3. ENTER]   Escrevendo no recurso R por 672 ms (Req C4-S7)...
+node3     | ✅ [01:06:18.823] [NO 3] [6. COMMITTED] Confirmado acesso #7 para o Cliente 3
+node3     | [1;34m📩 [01:06:18.824] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#8) -> Aguardando Token...[0m
+observer  | [01:06:18.824] [OBSERVER] [BEGIN] No=4 | Req=C4-S7 | TokenSeq=134 | Ativos=1
+observer  | [01:06:19.504] [OBSERVER] [END]   No=4 | Req=C4-S7 | TokenSeq=134 | Ativos=0
+node4     | 🏁 [01:06:19.504] [NO 4] [4. EXIT]    Terminou escrita de 672 ms em R (Req C4-S7)
+node4     | [1;36m➡️  [01:06:19.504] [NO 4] [5. RELEASE] Liberou R (Req C4-S7) e repassou o Token adiante[0m
+node4     | ✅ [01:06:19.505] [NO 4] [6. COMMITTED] Confirmado acesso #7 para o Cliente 4
+node4     | [1;34m📩 [01:06:19.505] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#8) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:06:19.506] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=135) para R | Esperou 2611.22 ms na fila[0m
+node0     | ⏳ [01:06:19.506] [NO 0] [3. ENTER]   Escrevendo no recurso R por 702 ms (Req C0-S8)...
+client4   | [01:06:19.505] [CLIENTE 4] Recebeu COMMITTED para C4-S7
+client4   | [01:06:19.505] [CLIENTE 4] Enviando REQUEST C4-S8 (8/15)
+observer  | [01:06:19.507] [OBSERVER] [BEGIN] No=0 | Req=C0-S8 | TokenSeq=135 | Ativos=1
+node0     | 🏁 [01:06:20.214] [NO 0] [4. EXIT]    Terminou escrita de 702 ms em R (Req C0-S8)
+node0     | [1;36m➡️  [01:06:20.214] [NO 0] [5. RELEASE] Liberou R (Req C0-S8) e repassou o Token adiante[0m
+observer  | [01:06:20.214] [OBSERVER] [END]   No=0 | Req=C0-S8 | TokenSeq=135 | Ativos=0
+node0     | ✅ [01:06:20.215] [NO 0] [6. COMMITTED] Confirmado acesso #8 para o Cliente 0
+node0     | [1;34m📩 [01:06:20.216] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#9) -> Aguardando Token...[0m
+client0   | [01:06:20.215] [CLIENTE 0] Recebeu COMMITTED para C0-S8
+client0   | [01:06:20.215] [CLIENTE 0] Enviando REQUEST C0-S9 (9/15)
+node1     | [1;35m🔑 [01:06:20.215] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=136) para R | Esperou 2502.81 ms na fila[0m
+node1     | ⏳ [01:06:20.215] [NO 1] [3. ENTER]   Escrevendo no recurso R por 626 ms (Req C1-S8)...
+observer  | [01:06:20.216] [OBSERVER] [BEGIN] No=1 | Req=C1-S8 | TokenSeq=136 | Ativos=1
+observer  | [01:06:20.849] [OBSERVER] [END]   No=1 | Req=C1-S8 | TokenSeq=136 | Ativos=0
+node1     | 🏁 [01:06:20.849] [NO 1] [4. EXIT]    Terminou escrita de 626 ms em R (Req C1-S8)
+node1     | [1;36m➡️  [01:06:20.849] [NO 1] [5. RELEASE] Liberou R (Req C1-S8) e repassou o Token adiante[0m
+node1     | ✅ [01:06:20.850] [NO 1] [6. COMMITTED] Confirmado acesso #8 para o Cliente 1
+node1     | [1;34m📩 [01:06:20.850] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#9) -> Aguardando Token...[0m
+client1   | [01:06:20.850] [CLIENTE 1] Recebeu COMMITTED para C1-S8
+client1   | [01:06:20.850] [CLIENTE 1] Enviando REQUEST C1-S9 (9/15)
+node2     | [1;35m🔑 [01:06:20.850] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=137) para R | Esperou 2355.45 ms na fila[0m
+node2     | ⏳ [01:06:20.850] [NO 2] [3. ENTER]   Escrevendo no recurso R por 350 ms (Req C2-S8)...
+observer  | [01:06:20.851] [OBSERVER] [BEGIN] No=2 | Req=C2-S8 | TokenSeq=137 | Ativos=1
+observer  | [01:06:21.206] [OBSERVER] [END]   No=2 | Req=C2-S8 | TokenSeq=137 | Ativos=0
+node2     | 🏁 [01:06:21.206] [NO 2] [4. EXIT]    Terminou escrita de 350 ms em R (Req C2-S8)
+node2     | [1;36m➡️  [01:06:21.206] [NO 2] [5. RELEASE] Liberou R (Req C2-S8) e repassou o Token adiante[0m
+client2   | [01:06:21.207] [CLIENTE 2] Recebeu COMMITTED para C2-S8
+client2   | [01:06:21.207] [CLIENTE 2] Enviando REQUEST C2-S9 (9/15)
+node3     | [1;35m🔑 [01:06:21.207] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=138) para R | Esperou 2382.80 ms na fila[0m
+node3     | ⏳ [01:06:21.207] [NO 3] [3. ENTER]   Escrevendo no recurso R por 889 ms (Req C3-S8)...
+node2     | ✅ [01:06:21.207] [NO 2] [6. COMMITTED] Confirmado acesso #8 para o Cliente 2
+node2     | [1;34m📩 [01:06:21.207] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#9) -> Aguardando Token...[0m
+observer  | [01:06:21.207] [OBSERVER] [BEGIN] No=3 | Req=C3-S8 | TokenSeq=138 | Ativos=1
+observer  | [01:06:22.103] [OBSERVER] [END]   No=3 | Req=C3-S8 | TokenSeq=138 | Ativos=0
+node3     | 🏁 [01:06:22.103] [NO 3] [4. EXIT]    Terminou escrita de 889 ms em R (Req C3-S8)
+node3     | [1;36m➡️  [01:06:22.103] [NO 3] [5. RELEASE] Liberou R (Req C3-S8) e repassou o Token adiante[0m
+node3     | ✅ [01:06:22.104] [NO 3] [6. COMMITTED] Confirmado acesso #8 para o Cliente 3
+node3     | [1;34m📩 [01:06:22.104] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#9) -> Aguardando Token...[0m
+client3   | [01:06:22.104] [CLIENTE 3] Recebeu COMMITTED para C3-S8
+client3   | [01:06:22.104] [CLIENTE 3] Enviando REQUEST C3-S9 (9/15)
+node4     | [1;35m🔑 [01:06:22.104] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=139) para R | Esperou 2598.73 ms na fila[0m
+node4     | ⏳ [01:06:22.104] [NO 4] [3. ENTER]   Escrevendo no recurso R por 491 ms (Req C4-S8)...
+observer  | [01:06:22.105] [OBSERVER] [BEGIN] No=4 | Req=C4-S8 | TokenSeq=139 | Ativos=1
+observer  | [01:06:22.603] [OBSERVER] [END]   No=4 | Req=C4-S8 | TokenSeq=139 | Ativos=0
+node4     | 🏁 [01:06:22.604] [NO 4] [4. EXIT]    Terminou escrita de 491 ms em R (Req C4-S8)
+node4     | [1;36m➡️  [01:06:22.604] [NO 4] [5. RELEASE] Liberou R (Req C4-S8) e repassou o Token adiante[0m
+node4     | ✅ [01:06:22.605] [NO 4] [6. COMMITTED] Confirmado acesso #8 para o Cliente 4
+node4     | [1;34m📩 [01:06:22.605] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#9) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:06:22.605] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=140) para R | Esperou 2389.17 ms na fila[0m
+node0     | ⏳ [01:06:22.605] [NO 0] [3. ENTER]   Escrevendo no recurso R por 737 ms (Req C0-S9)...
+client4   | [01:06:22.605] [CLIENTE 4] Recebeu COMMITTED para C4-S8
+client4   | [01:06:22.605] [CLIENTE 4] Enviando REQUEST C4-S9 (9/15)
+observer  | [01:06:22.606] [OBSERVER] [BEGIN] No=0 | Req=C0-S9 | TokenSeq=140 | Ativos=1
+node0     | 🏁 [01:06:23.346] [NO 0] [4. EXIT]    Terminou escrita de 737 ms em R (Req C0-S9)
+node0     | [1;36m➡️  [01:06:23.346] [NO 0] [5. RELEASE] Liberou R (Req C0-S9) e repassou o Token adiante[0m
+observer  | [01:06:23.346] [OBSERVER] [END]   No=0 | Req=C0-S9 | TokenSeq=140 | Ativos=0
+client0   | [01:06:23.346] [CLIENTE 0] Recebeu COMMITTED para C0-S9
+client0   | [01:06:23.347] [CLIENTE 0] Enviando REQUEST C0-S10 (10/15)
+node0     | ✅ [01:06:23.346] [NO 0] [6. COMMITTED] Confirmado acesso #9 para o Cliente 0
+node0     | [1;34m📩 [01:06:23.347] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#10) -> Aguardando Token...[0m
+node1     | [1;35m🔑 [01:06:23.347] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=141) para R | Esperou 2496.18 ms na fila[0m
+node1     | ⏳ [01:06:23.347] [NO 1] [3. ENTER]   Escrevendo no recurso R por 574 ms (Req C1-S9)...
+observer  | [01:06:23.347] [OBSERVER] [BEGIN] No=1 | Req=C1-S9 | TokenSeq=141 | Ativos=1
+node1     | 🏁 [01:06:23.927] [NO 1] [4. EXIT]    Terminou escrita de 574 ms em R (Req C1-S9)
+node1     | [1;36m➡️  [01:06:23.927] [NO 1] [5. RELEASE] Liberou R (Req C1-S9) e repassou o Token adiante[0m
+observer  | [01:06:23.927] [OBSERVER] [END]   No=1 | Req=C1-S9 | TokenSeq=141 | Ativos=0
+node1     | ✅ [01:06:23.928] [NO 1] [6. COMMITTED] Confirmado acesso #9 para o Cliente 1
+node1     | [1;34m📩 [01:06:23.928] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#10) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:06:23.928] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=142) para R | Esperou 2721.07 ms na fila[0m
+node2     | ⏳ [01:06:23.928] [NO 2] [3. ENTER]   Escrevendo no recurso R por 770 ms (Req C2-S9)...
+client1   | [01:06:23.928] [CLIENTE 1] Recebeu COMMITTED para C1-S9
+client1   | [01:06:23.928] [CLIENTE 1] Enviando REQUEST C1-S10 (10/15)
+observer  | [01:06:23.929] [OBSERVER] [BEGIN] No=2 | Req=C2-S9 | TokenSeq=142 | Ativos=1
+observer  | [01:06:24.706] [OBSERVER] [END]   No=2 | Req=C2-S9 | TokenSeq=142 | Ativos=0
+node2     | 🏁 [01:06:24.706] [NO 2] [4. EXIT]    Terminou escrita de 770 ms em R (Req C2-S9)
+node2     | [1;36m➡️  [01:06:24.706] [NO 2] [5. RELEASE] Liberou R (Req C2-S9) e repassou o Token adiante[0m
+client2   | [01:06:24.707] [CLIENTE 2] Recebeu COMMITTED para C2-S9
+client2   | [01:06:24.707] [CLIENTE 2] Enviando REQUEST C2-S10 (10/15)
+node2     | ✅ [01:06:24.707] [NO 2] [6. COMMITTED] Confirmado acesso #9 para o Cliente 2
+node3     | [1;35m🔑 [01:06:24.707] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=143) para R | Esperou 2602.73 ms na fila[0m
+node3     | ⏳ [01:06:24.707] [NO 3] [3. ENTER]   Escrevendo no recurso R por 469 ms (Req C3-S9)...
+node2     | [1;34m📩 [01:06:24.707] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#10) -> Aguardando Token...[0m
+observer  | [01:06:24.708] [OBSERVER] [BEGIN] No=3 | Req=C3-S9 | TokenSeq=143 | Ativos=1
+node3     | 🏁 [01:06:25.180] [NO 3] [4. EXIT]    Terminou escrita de 469 ms em R (Req C3-S9)
+node3     | [1;36m➡️  [01:06:25.180] [NO 3] [5. RELEASE] Liberou R (Req C3-S9) e repassou o Token adiante[0m
+observer  | [01:06:25.180] [OBSERVER] [END]   No=3 | Req=C3-S9 | TokenSeq=143 | Ativos=0
+client3   | [01:06:25.181] [CLIENTE 3] Recebeu COMMITTED para C3-S9
+client3   | [01:06:25.181] [CLIENTE 3] Enviando REQUEST C3-S10 (10/15)
+node4     | [1;35m🔑 [01:06:25.181] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=144) para R | Esperou 2576.04 ms na fila[0m
+node4     | ⏳ [01:06:25.181] [NO 4] [3. ENTER]   Escrevendo no recurso R por 982 ms (Req C4-S9)...
+node3     | ✅ [01:06:25.181] [NO 3] [6. COMMITTED] Confirmado acesso #9 para o Cliente 3
+node3     | [1;34m📩 [01:06:25.181] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#10) -> Aguardando Token...[0m
+observer  | [01:06:25.182] [OBSERVER] [BEGIN] No=4 | Req=C4-S9 | TokenSeq=144 | Ativos=1
+observer  | [01:06:26.170] [OBSERVER] [END]   No=4 | Req=C4-S9 | TokenSeq=144 | Ativos=0
+node4     | 🏁 [01:06:26.170] [NO 4] [4. EXIT]    Terminou escrita de 982 ms em R (Req C4-S9)
+node4     | [1;36m➡️  [01:06:26.170] [NO 4] [5. RELEASE] Liberou R (Req C4-S9) e repassou o Token adiante[0m
+node0     | [1;35m🔑 [01:06:26.170] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=145) para R | Esperou 2823.65 ms na fila[0m
+node0     | ⏳ [01:06:26.170] [NO 0] [3. ENTER]   Escrevendo no recurso R por 620 ms (Req C0-S10)...
+client4   | [01:06:26.170] [CLIENTE 4] Recebeu COMMITTED para C4-S9
+client4   | [01:06:26.170] [CLIENTE 4] Enviando REQUEST C4-S10 (10/15)
+node4     | ✅ [01:06:26.170] [NO 4] [6. COMMITTED] Confirmado acesso #9 para o Cliente 4
+node4     | [1;34m📩 [01:06:26.170] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#10) -> Aguardando Token...[0m
+observer  | [01:06:26.171] [OBSERVER] [BEGIN] No=0 | Req=C0-S10 | TokenSeq=145 | Ativos=1
+observer  | [01:06:26.797] [OBSERVER] [END]   No=0 | Req=C0-S10 | TokenSeq=145 | Ativos=0
+node0     | 🏁 [01:06:26.798] [NO 0] [4. EXIT]    Terminou escrita de 620 ms em R (Req C0-S10)
+node0     | [1;36m➡️  [01:06:26.798] [NO 0] [5. RELEASE] Liberou R (Req C0-S10) e repassou o Token adiante[0m
+client0   | [01:06:26.799] [CLIENTE 0] Recebeu COMMITTED para C0-S10
+client0   | [01:06:26.799] [CLIENTE 0] Enviando REQUEST C0-S11 (11/15)
+node0     | ✅ [01:06:26.799] [NO 0] [6. COMMITTED] Confirmado acesso #10 para o Cliente 0
+node0     | [1;34m📩 [01:06:26.799] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#11) -> Aguardando Token...[0m
+node1     | [1;35m🔑 [01:06:26.799] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=146) para R | Esperou 2870.67 ms na fila[0m
+node1     | ⏳ [01:06:26.799] [NO 1] [3. ENTER]   Escrevendo no recurso R por 599 ms (Req C1-S10)...
+observer  | [01:06:26.799] [OBSERVER] [BEGIN] No=1 | Req=C1-S10 | TokenSeq=146 | Ativos=1
+node1     | 🏁 [01:06:27.406] [NO 1] [4. EXIT]    Terminou escrita de 599 ms em R (Req C1-S10)
+node1     | [1;36m➡️  [01:06:27.406] [NO 1] [5. RELEASE] Liberou R (Req C1-S10) e repassou o Token adiante[0m
+observer  | [01:06:27.405] [OBSERVER] [END]   No=1 | Req=C1-S10 | TokenSeq=146 | Ativos=0
+node1     | ✅ [01:06:27.406] [NO 1] [6. COMMITTED] Confirmado acesso #10 para o Cliente 1
+client1   | [01:06:27.406] [CLIENTE 1] Recebeu COMMITTED para C1-S10
+client1   | [01:06:27.406] [CLIENTE 1] Enviando REQUEST C1-S11 (11/15)
+node1     | [1;34m📩 [01:06:27.407] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#11) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:06:27.406] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=147) para R | Esperou 2699.27 ms na fila[0m
+node2     | ⏳ [01:06:27.407] [NO 2] [3. ENTER]   Escrevendo no recurso R por 365 ms (Req C2-S10)...
+observer  | [01:06:27.408] [OBSERVER] [BEGIN] No=2 | Req=C2-S10 | TokenSeq=147 | Ativos=1
+node2     | 🏁 [01:06:27.776] [NO 2] [4. EXIT]    Terminou escrita de 365 ms em R (Req C2-S10)
+node2     | [1;36m➡️  [01:06:27.776] [NO 2] [5. RELEASE] Liberou R (Req C2-S10) e repassou o Token adiante[0m
+observer  | [01:06:27.776] [OBSERVER] [END]   No=2 | Req=C2-S10 | TokenSeq=147 | Ativos=0
+node2     | ✅ [01:06:27.777] [NO 2] [6. COMMITTED] Confirmado acesso #10 para o Cliente 2
+node2     | [1;34m📩 [01:06:27.777] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#11) -> Aguardando Token...[0m
+client2   | [01:06:27.777] [CLIENTE 2] Recebeu COMMITTED para C2-S10
+client2   | [01:06:27.777] [CLIENTE 2] Enviando REQUEST C2-S11 (11/15)
+node3     | [1;35m🔑 [01:06:27.777] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=148) para R | Esperou 2595.97 ms na fila[0m
+node3     | ⏳ [01:06:27.777] [NO 3] [3. ENTER]   Escrevendo no recurso R por 786 ms (Req C3-S10)...
+observer  | [01:06:27.778] [OBSERVER] [BEGIN] No=3 | Req=C3-S10 | TokenSeq=148 | Ativos=1
+observer  | [01:06:28.566] [OBSERVER] [END]   No=3 | Req=C3-S10 | TokenSeq=148 | Ativos=0
+node3     | 🏁 [01:06:28.566] [NO 3] [4. EXIT]    Terminou escrita de 786 ms em R (Req C3-S10)
+node3     | [1;36m➡️  [01:06:28.566] [NO 3] [5. RELEASE] Liberou R (Req C3-S10) e repassou o Token adiante[0m
+client3   | [01:06:28.566] [CLIENTE 3] Recebeu COMMITTED para C3-S10
+client3   | [01:06:28.567] [CLIENTE 3] Enviando REQUEST C3-S11 (11/15)
+node3     | ✅ [01:06:28.566] [NO 3] [6. COMMITTED] Confirmado acesso #10 para o Cliente 3
+node3     | [1;34m📩 [01:06:28.567] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#11) -> Aguardando Token...[0m
+node4     | [1;35m🔑 [01:06:28.567] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=149) para R | Esperou 2396.16 ms na fila[0m
+node4     | ⏳ [01:06:28.567] [NO 4] [3. ENTER]   Escrevendo no recurso R por 376 ms (Req C4-S10)...
+observer  | [01:06:28.567] [OBSERVER] [BEGIN] No=4 | Req=C4-S10 | TokenSeq=149 | Ativos=1
+node4     | 🏁 [01:06:28.949] [NO 4] [4. EXIT]    Terminou escrita de 376 ms em R (Req C4-S10)
+node4     | [1;36m➡️  [01:06:28.949] [NO 4] [5. RELEASE] Liberou R (Req C4-S10) e repassou o Token adiante[0m
+observer  | [01:06:28.949] [OBSERVER] [END]   No=4 | Req=C4-S10 | TokenSeq=149 | Ativos=0
+node0     | [1;35m🔑 [01:06:28.950] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=150) para R | Esperou 2151.64 ms na fila[0m
+node0     | ⏳ [01:06:28.951] [NO 0] [3. ENTER]   Escrevendo no recurso R por 538 ms (Req C0-S11)...
+node4     | ✅ [01:06:28.950] [NO 4] [6. COMMITTED] Confirmado acesso #10 para o Cliente 4
+node4     | [1;34m📩 [01:06:28.951] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#11) -> Aguardando Token...[0m
+client4   | [01:06:28.950] [CLIENTE 4] Recebeu COMMITTED para C4-S10
+client4   | [01:06:28.950] [CLIENTE 4] Enviando REQUEST C4-S11 (11/15)
+observer  | [01:06:28.951] [OBSERVER] [BEGIN] No=0 | Req=C0-S11 | TokenSeq=150 | Ativos=1
+node0     | 🏁 [01:06:29.494] [NO 0] [4. EXIT]    Terminou escrita de 538 ms em R (Req C0-S11)
+node0     | [1;36m➡️  [01:06:29.494] [NO 0] [5. RELEASE] Liberou R (Req C0-S11) e repassou o Token adiante[0m
+observer  | [01:06:29.493] [OBSERVER] [END]   No=0 | Req=C0-S11 | TokenSeq=150 | Ativos=0
+node1     | [1;35m🔑 [01:06:29.494] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=151) para R | Esperou 2087.43 ms na fila[0m
+node1     | ⏳ [01:06:29.494] [NO 1] [3. ENTER]   Escrevendo no recurso R por 921 ms (Req C1-S11)...
+node0     | ✅ [01:06:29.494] [NO 0] [6. COMMITTED] Confirmado acesso #11 para o Cliente 0
+node0     | [1;34m📩 [01:06:29.494] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#12) -> Aguardando Token...[0m
+client0   | [01:06:29.494] [CLIENTE 0] Recebeu COMMITTED para C0-S11
+client0   | [01:06:29.494] [CLIENTE 0] Enviando REQUEST C0-S12 (12/15)
+observer  | [01:06:29.495] [OBSERVER] [BEGIN] No=1 | Req=C1-S11 | TokenSeq=151 | Ativos=1
+observer  | [01:06:30.423] [OBSERVER] [END]   No=1 | Req=C1-S11 | TokenSeq=151 | Ativos=0
+node1     | 🏁 [01:06:30.423] [NO 1] [4. EXIT]    Terminou escrita de 921 ms em R (Req C1-S11)
+node1     | [1;36m➡️  [01:06:30.423] [NO 1] [5. RELEASE] Liberou R (Req C1-S11) e repassou o Token adiante[0m
+client1   | [01:06:30.424] [CLIENTE 1] Recebeu COMMITTED para C1-S11
+client1   | [01:06:30.424] [CLIENTE 1] Enviando REQUEST C1-S12 (12/15)
+node1     | ✅ [01:06:30.424] [NO 1] [6. COMMITTED] Confirmado acesso #11 para o Cliente 1
+node1     | [1;34m📩 [01:06:30.425] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#12) -> Aguardando Token...[0m
+node2     | [1;35m🔑 [01:06:30.425] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=152) para R | Esperou 2647.55 ms na fila[0m
+node2     | ⏳ [01:06:30.425] [NO 2] [3. ENTER]   Escrevendo no recurso R por 908 ms (Req C2-S11)...
+observer  | [01:06:30.426] [OBSERVER] [BEGIN] No=2 | Req=C2-S11 | TokenSeq=152 | Ativos=1
+node2     | 🏁 [01:06:31.340] [NO 2] [4. EXIT]    Terminou escrita de 908 ms em R (Req C2-S11)
+node2     | [1;36m➡️  [01:06:31.340] [NO 2] [5. RELEASE] Liberou R (Req C2-S11) e repassou o Token adiante[0m
+observer  | [01:06:31.340] [OBSERVER] [END]   No=2 | Req=C2-S11 | TokenSeq=152 | Ativos=0
+client2   | [01:06:31.341] [CLIENTE 2] Recebeu COMMITTED para C2-S11
+client2   | [01:06:31.341] [CLIENTE 2] Enviando REQUEST C2-S12 (12/15)
+node2     | ✅ [01:06:31.341] [NO 2] [6. COMMITTED] Confirmado acesso #11 para o Cliente 2
+node2     | [1;34m📩 [01:06:31.342] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#12) -> Aguardando Token...[0m
+node3     | [1;35m🔑 [01:06:31.341] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=153) para R | Esperou 2774.59 ms na fila[0m
+node3     | ⏳ [01:06:31.341] [NO 3] [3. ENTER]   Escrevendo no recurso R por 568 ms (Req C3-S11)...
+observer  | [01:06:31.343] [OBSERVER] [BEGIN] No=3 | Req=C3-S11 | TokenSeq=153 | Ativos=1
+observer  | [01:06:31.918] [OBSERVER] [END]   No=3 | Req=C3-S11 | TokenSeq=153 | Ativos=0
+node3     | 🏁 [01:06:31.918] [NO 3] [4. EXIT]    Terminou escrita de 568 ms em R (Req C3-S11)
+node4     | [1;35m🔑 [01:06:31.919] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=154) para R | Esperou 2967.91 ms na fila[0m
+node4     | ⏳ [01:06:31.919] [NO 4] [3. ENTER]   Escrevendo no recurso R por 714 ms (Req C4-S11)...
+client3   | [01:06:31.918] [CLIENTE 3] Recebeu COMMITTED para C3-S11
+client3   | [01:06:31.919] [CLIENTE 3] Enviando REQUEST C3-S12 (12/15)
+node3     | [1;36m➡️  [01:06:31.918] [NO 3] [5. RELEASE] Liberou R (Req C3-S11) e repassou o Token adiante[0m
+node3     | ✅ [01:06:31.918] [NO 3] [6. COMMITTED] Confirmado acesso #11 para o Cliente 3
+node3     | [1;34m📩 [01:06:31.919] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#12) -> Aguardando Token...[0m
+observer  | [01:06:31.919] [OBSERVER] [BEGIN] No=4 | Req=C4-S11 | TokenSeq=154 | Ativos=1
+node4     | 🏁 [01:06:32.640] [NO 4] [4. EXIT]    Terminou escrita de 714 ms em R (Req C4-S11)
+node4     | [1;36m➡️  [01:06:32.640] [NO 4] [5. RELEASE] Liberou R (Req C4-S11) e repassou o Token adiante[0m
+observer  | [01:06:32.640] [OBSERVER] [END]   No=4 | Req=C4-S11 | TokenSeq=154 | Ativos=0
+node4     | ✅ [01:06:32.641] [NO 4] [6. COMMITTED] Confirmado acesso #11 para o Cliente 4
+node4     | [1;34m📩 [01:06:32.641] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#12) -> Aguardando Token...[0m
+node0     | [1;35m🔑 [01:06:32.641] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=155) para R | Esperou 3146.58 ms na fila[0m
+node0     | ⏳ [01:06:32.641] [NO 0] [3. ENTER]   Escrevendo no recurso R por 264 ms (Req C0-S12)...
+client4   | [01:06:32.641] [CLIENTE 4] Recebeu COMMITTED para C4-S11
+client4   | [01:06:32.641] [CLIENTE 4] Enviando REQUEST C4-S12 (12/15)
+observer  | [01:06:32.642] [OBSERVER] [BEGIN] No=0 | Req=C0-S12 | TokenSeq=155 | Ativos=1
+observer  | [01:06:32.913] [OBSERVER] [END]   No=0 | Req=C0-S12 | TokenSeq=155 | Ativos=0
+node0     | 🏁 [01:06:32.913] [NO 0] [4. EXIT]    Terminou escrita de 264 ms em R (Req C0-S12)
+node0     | [1;36m➡️  [01:06:32.913] [NO 0] [5. RELEASE] Liberou R (Req C0-S12) e repassou o Token adiante[0m
+node0     | ✅ [01:06:32.914] [NO 0] [6. COMMITTED] Confirmado acesso #12 para o Cliente 0
+node0     | [1;34m📩 [01:06:32.914] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#13) -> Aguardando Token...[0m
+client0   | [01:06:32.914] [CLIENTE 0] Recebeu COMMITTED para C0-S12
+client0   | [01:06:32.914] [CLIENTE 0] Enviando REQUEST C0-S13 (13/15)
+node1     | [1;35m🔑 [01:06:32.914] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=156) para R | Esperou 2489.29 ms na fila[0m
+node1     | ⏳ [01:06:32.914] [NO 1] [3. ENTER]   Escrevendo no recurso R por 804 ms (Req C1-S12)...
+observer  | [01:06:32.915] [OBSERVER] [BEGIN] No=1 | Req=C1-S12 | TokenSeq=156 | Ativos=1
+node1     | 🏁 [01:06:33.727] [NO 1] [4. EXIT]    Terminou escrita de 804 ms em R (Req C1-S12)
+node1     | [1;36m➡️  [01:06:33.727] [NO 1] [5. RELEASE] Liberou R (Req C1-S12) e repassou o Token adiante[0m
+observer  | [01:06:33.727] [OBSERVER] [END]   No=1 | Req=C1-S12 | TokenSeq=156 | Ativos=0
+client1   | [01:06:33.728] [CLIENTE 1] Recebeu COMMITTED para C1-S12
+client1   | [01:06:33.728] [CLIENTE 1] Enviando REQUEST C1-S13 (13/15)
+node2     | [1;35m🔑 [01:06:33.728] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=157) para R | Esperou 2385.76 ms na fila[0m
+node2     | ⏳ [01:06:33.728] [NO 2] [3. ENTER]   Escrevendo no recurso R por 357 ms (Req C2-S12)...
+node1     | ✅ [01:06:33.728] [NO 1] [6. COMMITTED] Confirmado acesso #12 para o Cliente 1
+node1     | [1;34m📩 [01:06:33.728] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#13) -> Aguardando Token...[0m
+observer  | [01:06:33.729] [OBSERVER] [BEGIN] No=2 | Req=C2-S12 | TokenSeq=157 | Ativos=1
+observer  | [01:06:34.093] [OBSERVER] [END]   No=2 | Req=C2-S12 | TokenSeq=157 | Ativos=0
+node2     | 🏁 [01:06:34.093] [NO 2] [4. EXIT]    Terminou escrita de 357 ms em R (Req C2-S12)
+node2     | [1;36m➡️  [01:06:34.093] [NO 2] [5. RELEASE] Liberou R (Req C2-S12) e repassou o Token adiante[0m
+client2   | [01:06:34.094] [CLIENTE 2] Recebeu COMMITTED para C2-S12
+client2   | [01:06:34.094] [CLIENTE 2] Enviando REQUEST C2-S13 (13/15)
+node3     | [1;35m🔑 [01:06:34.094] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=158) para R | Esperou 2175.77 ms na fila[0m
+node3     | ⏳ [01:06:34.095] [NO 3] [3. ENTER]   Escrevendo no recurso R por 305 ms (Req C3-S12)...
+node2     | ✅ [01:06:34.094] [NO 2] [6. COMMITTED] Confirmado acesso #12 para o Cliente 2
+node2     | [1;34m📩 [01:06:34.095] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#13) -> Aguardando Token...[0m
+observer  | [01:06:34.096] [OBSERVER] [BEGIN] No=3 | Req=C3-S12 | TokenSeq=158 | Ativos=1
+node3     | 🏁 [01:06:34.408] [NO 3] [4. EXIT]    Terminou escrita de 305 ms em R (Req C3-S12)
+node3     | [1;36m➡️  [01:06:34.408] [NO 3] [5. RELEASE] Liberou R (Req C3-S12) e repassou o Token adiante[0m
+observer  | [01:06:34.407] [OBSERVER] [END]   No=3 | Req=C3-S12 | TokenSeq=158 | Ativos=0
+client3   | [01:06:34.408] [CLIENTE 3] Recebeu COMMITTED para C3-S12
+client3   | [01:06:34.408] [CLIENTE 3] Enviando REQUEST C3-S13 (13/15)
+node3     | ✅ [01:06:34.408] [NO 3] [6. COMMITTED] Confirmado acesso #12 para o Cliente 3
+node3     | [1;34m📩 [01:06:34.409] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#13) -> Aguardando Token...[0m
+node4     | [1;35m🔑 [01:06:34.408] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=159) para R | Esperou 1767.37 ms na fila[0m
+node4     | ⏳ [01:06:34.408] [NO 4] [3. ENTER]   Escrevendo no recurso R por 628 ms (Req C4-S12)...
+observer  | [01:06:34.409] [OBSERVER] [BEGIN] No=4 | Req=C4-S12 | TokenSeq=159 | Ativos=1
+observer  | [01:06:35.044] [OBSERVER] [END]   No=4 | Req=C4-S12 | TokenSeq=159 | Ativos=0
+node4     | 🏁 [01:06:35.044] [NO 4] [4. EXIT]    Terminou escrita de 628 ms em R (Req C4-S12)
+node4     | [1;36m➡️  [01:06:35.044] [NO 4] [5. RELEASE] Liberou R (Req C4-S12) e repassou o Token adiante[0m
+node0     | [1;35m🔑 [01:06:35.045] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=160) para R | Esperou 2130.41 ms na fila[0m
+node4     | ✅ [01:06:35.045] [NO 4] [6. COMMITTED] Confirmado acesso #12 para o Cliente 4
+node4     | [1;34m📩 [01:06:35.045] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#13) -> Aguardando Token...[0m
+node0     | ⏳ [01:06:35.045] [NO 0] [3. ENTER]   Escrevendo no recurso R por 282 ms (Req C0-S13)...
+client4   | [01:06:35.045] [CLIENTE 4] Recebeu COMMITTED para C4-S12
+client4   | [01:06:35.045] [CLIENTE 4] Enviando REQUEST C4-S13 (13/15)
+observer  | [01:06:35.046] [OBSERVER] [BEGIN] No=0 | Req=C0-S13 | TokenSeq=160 | Ativos=1
+observer  | [01:06:35.331] [OBSERVER] [END]   No=0 | Req=C0-S13 | TokenSeq=160 | Ativos=0
+node0     | 🏁 [01:06:35.332] [NO 0] [4. EXIT]    Terminou escrita de 282 ms em R (Req C0-S13)
+node0     | [1;36m➡️  [01:06:35.332] [NO 0] [5. RELEASE] Liberou R (Req C0-S13) e repassou o Token adiante[0m
+node1     | [1;35m🔑 [01:06:35.332] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=161) para R | Esperou 1604.63 ms na fila[0m
+node0     | ✅ [01:06:35.332] [NO 0] [6. COMMITTED] Confirmado acesso #13 para o Cliente 0
+node1     | ⏳ [01:06:35.333] [NO 1] [3. ENTER]   Escrevendo no recurso R por 327 ms (Req C1-S13)...
+client0   | [01:06:35.332] [CLIENTE 0] Recebeu COMMITTED para C0-S13
+client0   | [01:06:35.332] [CLIENTE 0] Enviando REQUEST C0-S14 (14/15)
+node0     | [1;34m📩 [01:06:35.333] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#14) -> Aguardando Token...[0m
+observer  | [01:06:35.334] [OBSERVER] [BEGIN] No=1 | Req=C1-S13 | TokenSeq=161 | Ativos=1
+observer  | [01:06:35.665] [OBSERVER] [END]   No=1 | Req=C1-S13 | TokenSeq=161 | Ativos=0
+node1     | 🏁 [01:06:35.666] [NO 1] [4. EXIT]    Terminou escrita de 327 ms em R (Req C1-S13)
+node1     | [1;36m➡️  [01:06:35.666] [NO 1] [5. RELEASE] Liberou R (Req C1-S13) e repassou o Token adiante[0m
+node2     | [1;35m🔑 [01:06:35.666] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=162) para R | Esperou 1571.30 ms na fila[0m
+node2     | ⏳ [01:06:35.666] [NO 2] [3. ENTER]   Escrevendo no recurso R por 725 ms (Req C2-S13)...
+client1   | [01:06:35.666] [CLIENTE 1] Recebeu COMMITTED para C1-S13
+client1   | [01:06:35.666] [CLIENTE 1] Enviando REQUEST C1-S14 (14/15)
+node1     | ✅ [01:06:35.666] [NO 1] [6. COMMITTED] Confirmado acesso #13 para o Cliente 1
+node1     | [1;34m📩 [01:06:35.666] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#14) -> Aguardando Token...[0m
+observer  | [01:06:35.667] [OBSERVER] [BEGIN] No=2 | Req=C2-S13 | TokenSeq=162 | Ativos=1
+observer  | [01:06:36.400] [OBSERVER] [END]   No=2 | Req=C2-S13 | TokenSeq=162 | Ativos=0
+node2     | 🏁 [01:06:36.400] [NO 2] [4. EXIT]    Terminou escrita de 725 ms em R (Req C2-S13)
+node2     | [1;36m➡️  [01:06:36.400] [NO 2] [5. RELEASE] Liberou R (Req C2-S13) e repassou o Token adiante[0m
+node2     | ✅ [01:06:36.401] [NO 2] [6. COMMITTED] Confirmado acesso #13 para o Cliente 2
+node2     | [1;34m📩 [01:06:36.401] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#14) -> Aguardando Token...[0m
+client2   | [01:06:36.401] [CLIENTE 2] Recebeu COMMITTED para C2-S13
+client2   | [01:06:36.401] [CLIENTE 2] Enviando REQUEST C2-S14 (14/15)
+node3     | [1;35m🔑 [01:06:36.401] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=163) para R | Esperou 1991.92 ms na fila[0m
+node3     | ⏳ [01:06:36.401] [NO 3] [3. ENTER]   Escrevendo no recurso R por 219 ms (Req C3-S13)...
+observer  | [01:06:36.402] [OBSERVER] [BEGIN] No=3 | Req=C3-S13 | TokenSeq=163 | Ativos=1
+node3     | 🏁 [01:06:36.628] [NO 3] [4. EXIT]    Terminou escrita de 219 ms em R (Req C3-S13)
+node3     | [1;36m➡️  [01:06:36.628] [NO 3] [5. RELEASE] Liberou R (Req C3-S13) e repassou o Token adiante[0m
+observer  | [01:06:36.628] [OBSERVER] [END]   No=3 | Req=C3-S13 | TokenSeq=163 | Ativos=0
+client3   | [01:06:36.629] [CLIENTE 3] Recebeu COMMITTED para C3-S13
+client3   | [01:06:36.629] [CLIENTE 3] Enviando REQUEST C3-S14 (14/15)
+node3     | ✅ [01:06:36.629] [NO 3] [6. COMMITTED] Confirmado acesso #13 para o Cliente 3
+node3     | [1;34m📩 [01:06:36.629] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#14) -> Aguardando Token...[0m
+node4     | [1;35m🔑 [01:06:36.629] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=164) para R | Esperou 1583.23 ms na fila[0m
+node4     | ⏳ [01:06:36.629] [NO 4] [3. ENTER]   Escrevendo no recurso R por 339 ms (Req C4-S13)...
+observer  | [01:06:36.630] [OBSERVER] [BEGIN] No=4 | Req=C4-S13 | TokenSeq=164 | Ativos=1
+node0     | [1;35m🔑 [01:06:36.974] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=165) para R | Esperou 1641.12 ms na fila[0m
+node4     | 🏁 [01:06:36.973] [NO 4] [4. EXIT]    Terminou escrita de 339 ms em R (Req C4-S13)
+node4     | [1;36m➡️  [01:06:36.973] [NO 4] [5. RELEASE] Liberou R (Req C4-S13) e repassou o Token adiante[0m
+node4     | ✅ [01:06:36.974] [NO 4] [6. COMMITTED] Confirmado acesso #13 para o Cliente 4
+node4     | [1;34m📩 [01:06:36.974] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#14) -> Aguardando Token...[0m
+observer  | [01:06:36.973] [OBSERVER] [END]   No=4 | Req=C4-S13 | TokenSeq=164 | Ativos=0
+observer  | [01:06:36.975] [OBSERVER] [BEGIN] No=0 | Req=C0-S14 | TokenSeq=165 | Ativos=1
+node0     | ⏳ [01:06:36.974] [NO 0] [3. ENTER]   Escrevendo no recurso R por 335 ms (Req C0-S14)...
+client4   | [01:06:36.974] [CLIENTE 4] Recebeu COMMITTED para C4-S13
+client4   | [01:06:36.974] [CLIENTE 4] Enviando REQUEST C4-S14 (14/15)
+observer  | [01:06:37.316] [OBSERVER] [END]   No=0 | Req=C0-S14 | TokenSeq=165 | Ativos=0
+node0     | 🏁 [01:06:37.317] [NO 0] [4. EXIT]    Terminou escrita de 335 ms em R (Req C0-S14)
+node0     | [1;36m➡️  [01:06:37.317] [NO 0] [5. RELEASE] Liberou R (Req C0-S14) e repassou o Token adiante[0m
+client0   | [01:06:37.318] [CLIENTE 0] Recebeu COMMITTED para C0-S14
+client0   | [01:06:37.318] [CLIENTE 0] Enviando REQUEST C0-S15 (15/15)
+node0     | ✅ [01:06:37.318] [NO 0] [6. COMMITTED] Confirmado acesso #14 para o Cliente 0
+node0     | [1;34m📩 [01:06:37.318] [NO 0] [1. REQUEST] Recebeu pedido do Cliente 0 (#15) -> Aguardando Token...[0m
+node1     | [1;35m🔑 [01:06:37.318] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=166) para R | Esperou 1650.71 ms na fila[0m
+node1     | ⏳ [01:06:37.318] [NO 1] [3. ENTER]   Escrevendo no recurso R por 468 ms (Req C1-S14)...
+observer  | [01:06:37.318] [OBSERVER] [BEGIN] No=1 | Req=C1-S14 | TokenSeq=166 | Ativos=1
+observer  | [01:06:37.793] [OBSERVER] [END]   No=1 | Req=C1-S14 | TokenSeq=166 | Ativos=0
+node1     | 🏁 [01:06:37.794] [NO 1] [4. EXIT]    Terminou escrita de 468 ms em R (Req C1-S14)
+node1     | [1;36m➡️  [01:06:37.794] [NO 1] [5. RELEASE] Liberou R (Req C1-S14) e repassou o Token adiante[0m
+node1     | ✅ [01:06:37.794] [NO 1] [6. COMMITTED] Confirmado acesso #14 para o Cliente 1
+client1   | [01:06:37.794] [CLIENTE 1] Recebeu COMMITTED para C1-S14
+client1   | [01:06:37.794] [CLIENTE 1] Enviando REQUEST C1-S15 (15/15)
+node2     | [1;35m🔑 [01:06:37.795] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=167) para R | Esperou 1393.45 ms na fila[0m
+node2     | ⏳ [01:06:37.795] [NO 2] [3. ENTER]   Escrevendo no recurso R por 979 ms (Req C2-S14)...
+node1     | [1;34m📩 [01:06:37.795] [NO 1] [1. REQUEST] Recebeu pedido do Cliente 1 (#15) -> Aguardando Token...[0m
+observer  | [01:06:37.795] [OBSERVER] [BEGIN] No=2 | Req=C2-S14 | TokenSeq=167 | Ativos=1
+node2     | 🏁 [01:06:38.780] [NO 2] [4. EXIT]    Terminou escrita de 979 ms em R (Req C2-S14)
+node2     | [1;36m➡️  [01:06:38.780] [NO 2] [5. RELEASE] Liberou R (Req C2-S14) e repassou o Token adiante[0m
+observer  | [01:06:38.780] [OBSERVER] [END]   No=2 | Req=C2-S14 | TokenSeq=167 | Ativos=0
+node3     | [1;35m🔑 [01:06:38.781] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=168) para R | Esperou 2152.47 ms na fila[0m
+node3     | ⏳ [01:06:38.781] [NO 3] [3. ENTER]   Escrevendo no recurso R por 789 ms (Req C3-S14)...
+client2   | [01:06:38.781] [CLIENTE 2] Recebeu COMMITTED para C2-S14
+node2     | ✅ [01:06:38.781] [NO 2] [6. COMMITTED] Confirmado acesso #14 para o Cliente 2
+node2     | [1;34m📩 [01:06:38.782] [NO 2] [1. REQUEST] Recebeu pedido do Cliente 2 (#15) -> Aguardando Token...[0m
+client2   | [01:06:38.781] [CLIENTE 2] Enviando REQUEST C2-S15 (15/15)
+observer  | [01:06:38.782] [OBSERVER] [BEGIN] No=3 | Req=C3-S14 | TokenSeq=168 | Ativos=1
+node3     | 🏁 [01:06:39.574] [NO 3] [4. EXIT]    Terminou escrita de 789 ms em R (Req C3-S14)
+node3     | [1;36m➡️  [01:06:39.574] [NO 3] [5. RELEASE] Liberou R (Req C3-S14) e repassou o Token adiante[0m
+observer  | [01:06:39.574] [OBSERVER] [END]   No=3 | Req=C3-S14 | TokenSeq=168 | Ativos=0
+node4     | [1;35m🔑 [01:06:39.575] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=169) para R | Esperou 2600.60 ms na fila[0m
+client3   | [01:06:39.575] [CLIENTE 3] Recebeu COMMITTED para C3-S14
+client3   | [01:06:39.575] [CLIENTE 3] Enviando REQUEST C3-S15 (15/15)
+node3     | ✅ [01:06:39.575] [NO 3] [6. COMMITTED] Confirmado acesso #14 para o Cliente 3
+node4     | ⏳ [01:06:39.575] [NO 4] [3. ENTER]   Escrevendo no recurso R por 309 ms (Req C4-S14)...
+node3     | [1;34m📩 [01:06:39.575] [NO 3] [1. REQUEST] Recebeu pedido do Cliente 3 (#15) -> Aguardando Token...[0m
+observer  | [01:06:39.576] [OBSERVER] [BEGIN] No=4 | Req=C4-S14 | TokenSeq=169 | Ativos=1
+observer  | [01:06:39.889] [OBSERVER] [END]   No=4 | Req=C4-S14 | TokenSeq=169 | Ativos=0
+observer  | [01:06:39.891] [OBSERVER] [BEGIN] No=0 | Req=C0-S15 | TokenSeq=170 | Ativos=1
+node4     | 🏁 [01:06:39.889] [NO 4] [4. EXIT]    Terminou escrita de 309 ms em R (Req C4-S14)
+node4     | [1;36m➡️  [01:06:39.889] [NO 4] [5. RELEASE] Liberou R (Req C4-S14) e repassou o Token adiante[0m
+node4     | ✅ [01:06:39.890] [NO 4] [6. COMMITTED] Confirmado acesso #14 para o Cliente 4
+node0     | [1;35m🔑 [01:06:39.890] [NO 0] [2. ACQUIRE] Pegou o Token (Seq=170) para R | Esperou 2572.30 ms na fila[0m
+client4   | [01:06:39.890] [CLIENTE 4] Recebeu COMMITTED para C4-S14
+client4   | [01:06:39.890] [CLIENTE 4] Enviando REQUEST C4-S15 (15/15)
+node0     | ⏳ [01:06:39.890] [NO 0] [3. ENTER]   Escrevendo no recurso R por 610 ms (Req C0-S15)...
+node4     | [1;34m📩 [01:06:39.890] [NO 4] [1. REQUEST] Recebeu pedido do Cliente 4 (#15) -> Aguardando Token...[0m
+node0     | 🏁 [01:06:40.507] [NO 0] [4. EXIT]    Terminou escrita de 610 ms em R (Req C0-S15)
+node0     | [1;36m➡️  [01:06:40.507] [NO 0] [5. RELEASE] Liberou R (Req C0-S15) e repassou o Token adiante[0m
+observer  | [01:06:40.507] [OBSERVER] [END]   No=0 | Req=C0-S15 | TokenSeq=170 | Ativos=0
+node0     | ✅ [01:06:40.508] [NO 0] [6. COMMITTED] Confirmado acesso #15 para o Cliente 0
+node1     | [1;35m🔑 [01:06:40.508] [NO 1] [2. ACQUIRE] Pegou o Token (Seq=171) para R | Esperou 2713.67 ms na fila[0m
+node1     | ⏳ [01:06:40.508] [NO 1] [3. ENTER]   Escrevendo no recurso R por 442 ms (Req C1-S15)...
+client0   | [01:06:40.508] [CLIENTE 0] Recebeu COMMITTED para C0-S15
+client0   | [01:06:40.508] [CLIENTE 0] Finalizou todos os 15 acessos.
+observer  | [01:06:40.509] [OBSERVER] [BEGIN] No=1 | Req=C1-S15 | TokenSeq=171 | Ativos=1
+observer  | [01:06:40.510] [OBSERVER] [INFO] No 0 concluiu carga (1/5 nos finalizados).
+[Kclient0 exited with code 0
+node1     | 🏁 [01:06:40.959] [NO 1] [4. EXIT]    Terminou escrita de 442 ms em R (Req C1-S15)
+node1     | [1;36m➡️  [01:06:40.959] [NO 1] [5. RELEASE] Liberou R (Req C1-S15) e repassou o Token adiante[0m
+observer  | [01:06:40.958] [OBSERVER] [END]   No=1 | Req=C1-S15 | TokenSeq=171 | Ativos=0
+client1   | [01:06:40.959] [CLIENTE 1] Recebeu COMMITTED para C1-S15
+client1   | [01:06:40.959] [CLIENTE 1] Finalizou todos os 15 acessos.
+node1     | ✅ [01:06:40.959] [NO 1] [6. COMMITTED] Confirmado acesso #15 para o Cliente 1
+node2     | [1;35m🔑 [01:06:40.959] [NO 2] [2. ACQUIRE] Pegou o Token (Seq=172) para R | Esperou 2177.92 ms na fila[0m
+node2     | ⏳ [01:06:40.959] [NO 2] [3. ENTER]   Escrevendo no recurso R por 656 ms (Req C2-S15)...
+observer  | [01:06:40.961] [OBSERVER] [BEGIN] No=2 | Req=C2-S15 | TokenSeq=172 | Ativos=1
+observer  | [01:06:40.961] [OBSERVER] [INFO] No 1 concluiu carga (2/5 nos finalizados).
+[Kclient1 exited with code 0
+observer  | [01:06:41.623] [OBSERVER] [END]   No=2 | Req=C2-S15 | TokenSeq=172 | Ativos=0
+node2     | 🏁 [01:06:41.623] [NO 2] [4. EXIT]    Terminou escrita de 656 ms em R (Req C2-S15)
+node2     | [1;36m➡️  [01:06:41.623] [NO 2] [5. RELEASE] Liberou R (Req C2-S15) e repassou o Token adiante[0m
+node2     | ✅ [01:06:41.624] [NO 2] [6. COMMITTED] Confirmado acesso #15 para o Cliente 2
+client2   | [01:06:41.624] [CLIENTE 2] Recebeu COMMITTED para C2-S15
+client2   | [01:06:41.624] [CLIENTE 2] Finalizou todos os 15 acessos.
+node3     | [1;35m🔑 [01:06:41.624] [NO 3] [2. ACQUIRE] Pegou o Token (Seq=173) para R | Esperou 2048.94 ms na fila[0m
+node3     | ⏳ [01:06:41.624] [NO 3] [3. ENTER]   Escrevendo no recurso R por 359 ms (Req C3-S15)...
+observer  | [01:06:41.626] [OBSERVER] [BEGIN] No=3 | Req=C3-S15 | TokenSeq=173 | Ativos=1
+observer  | [01:06:41.626] [OBSERVER] [INFO] No 2 concluiu carga (3/5 nos finalizados).
+[Kclient2 exited with code 0
+node3     | 🏁 [01:06:41.992] [NO 3] [4. EXIT]    Terminou escrita de 359 ms em R (Req C3-S15)
+node3     | [1;36m➡️  [01:06:41.992] [NO 3] [5. RELEASE] Liberou R (Req C3-S15) e repassou o Token adiante[0m
+observer  | [01:06:41.992] [OBSERVER] [END]   No=3 | Req=C3-S15 | TokenSeq=173 | Ativos=0
+node3     | ✅ [01:06:41.992] [NO 3] [6. COMMITTED] Confirmado acesso #15 para o Cliente 3
+client3   | [01:06:41.993] [CLIENTE 3] Recebeu COMMITTED para C3-S15
+client3   | [01:06:41.993] [CLIENTE 3] Finalizou todos os 15 acessos.
+node4     | [1;35m🔑 [01:06:41.993] [NO 4] [2. ACQUIRE] Pegou o Token (Seq=174) para R | Esperou 2102.56 ms na fila[0m
+node4     | ⏳ [01:06:41.993] [NO 4] [3. ENTER]   Escrevendo no recurso R por 982 ms (Req C4-S15)...
+observer  | [01:06:41.994] [OBSERVER] [BEGIN] No=4 | Req=C4-S15 | TokenSeq=174 | Ativos=1
+observer  | [01:06:41.994] [OBSERVER] [INFO] No 3 concluiu carga (4/5 nos finalizados).
+[Kclient3 exited with code 0
+node4     | 🏁 [01:06:42.981] [NO 4] [4. EXIT]    Terminou escrita de 982 ms em R (Req C4-S15)
+node4     | [1;36m➡️  [01:06:42.981] [NO 4] [5. RELEASE] Liberou R (Req C4-S15) e repassou o Token adiante[0m
+observer  | [01:06:42.980] [OBSERVER] [END]   No=4 | Req=C4-S15 | TokenSeq=174 | Ativos=0
+node4     | ✅ [01:06:42.982] [NO 4] [6. COMMITTED] Confirmado acesso #15 para o Cliente 4
+client4   | [01:06:42.982] [CLIENTE 4] Recebeu COMMITTED para C4-S15
+client4   | [01:06:42.982] [CLIENTE 4] Finalizou todos os 15 acessos.
+observer  | [01:06:42.983] [OBSERVER] [INFO] No 4 concluiu carga (5/5 nos finalizados).
+observer  | 
+observer  | ====================================================================
+observer  |           RELATORIO DO VERIFICADOR DE PROPRIEDADES (TP2)            
+observer  | ====================================================================
+observer  | Propriedade de Exclusao Mutua : VERIFICADA (0 sobreposicoes)
+observer  | Total de Violacoes Detectadas : 0
+observer  | Total de Pedidos Concluidos   : 75
+observer  | Tempo Total do Experimento    : 43.97 segundos
+observer  | Mensagens do Protocolo (Token): 175 (Media: 2.33 msgs/entrada)
+observer  | Mensagens de Instrumentacao   : 150 (BEGIN + END)
+observer  | --------------------------------------------------------------------
+observer  | Distribuicao por Cliente / No :
+observer  |   - No 0 (Cliente 0):  15 acessos | Espera Mediana: 2232.34 ms | Tokens enviados: 35
+observer  |   - No 1 (Cliente 1):  15 acessos | Espera Mediana: 2183.40 ms | Tokens enviados: 35
+observer  |   - No 2 (Cliente 2):  15 acessos | Espera Mediana: 2320.20 ms | Tokens enviados: 35
+observer  |   - No 3 (Cliente 3):  15 acessos | Espera Mediana: 2246.17 ms | Tokens enviados: 35
+observer  |   - No 4 (Cliente 4):  15 acessos | Espera Mediana: 2456.01 ms | Tokens enviados: 35
+observer  | ====================================================================
+[Kclient4 exited with code 0
+[Kobserver exited with code 0
+[Knode4 exited with code 0
+[Knode3 exited with code 0
+[Knode2 exited with code 0
+[Knode1 exited with code 0
+[Knode0 exited with code 0
